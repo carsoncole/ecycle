@@ -1,26 +1,32 @@
-= form_for @pickup do |f|
-  - if @pickup.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@pickup.errors.count, "error")} prohibited this pickup from being saved:"
-      %ul
-        - @pickup.errors.full_messages.each do |message|
-          %li= message
-  .form-group
-    .field
-      %label
-        = f.label :name
-      = f.text_field :name, class: 'form-control'
-  .form-group
-    .field
-      = f.label :email
-      = f.text_field :email, class: 'form-control'
-  .form-group
-    .field
-      = f.label :street_address
-      = f.text_field :street_address, class: 'form-control'
-  .form-group
-    .field
-      = f.label :How_heavy_is_your_ewaste?
-      = f.select :size, options_for_select(Pickup::SIZES), {}, class: 'form-control'
-  .actions.text-center
-    = f.submit 'Schedule Pickup', class: 'btn btn-lg btn-block'
+
+- if signed_in?
+  = form_for @pickup do |f|
+    - if @pickup.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@pickup.errors.count, "error")} prohibited this pickup from being saved:"
+        %ul
+          - @pickup.errors.full_messages.each do |message|
+            %li= message
+    .form-group
+      .field
+        %label
+          = f.label :name
+        = f.text_field :name, class: 'form-control'
+    .form-group
+      .field
+        = f.label :email
+        = f.text_field :email, class: 'form-control'
+    .form-group
+      .field
+        = f.label :street_address
+        = f.text_field :street_address, class: 'form-control'
+    .form-group
+      .field
+        = f.label :How_heavy_is_your_ewaste?
+        = f.select :size, options_for_select(Pickup::SIZES), {}, class: 'form-control'
+    .actions.text-center
+      = f.submit 'Schedule Pickup', class: 'btn btn-lg btn-block'
+
+- else
+  .alert.alert-success
+    Sign-ups for pickups will start soon. Please check back.
