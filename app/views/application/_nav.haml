@@ -18,9 +18,5 @@
 
         - if signed_in? 
           %li.nav-item= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link'
-        - else
-          %li.nav-item= link_to 'Sign in', sign_in_path, class: 'nav-link'
-
-#flash
-  - flash.each do |key, value|
-    %div(class="flash #{key}")= value
+        / - else
+        /   %li.nav-item= link_to 'Sign in', sign_in_path, class: 'nav-link'

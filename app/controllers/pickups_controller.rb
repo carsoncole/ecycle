@@ -62,6 +62,6 @@ class PickupsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def pickup_params
-      params.require(:pickup).permit(:name, :email, :street_address, :driver_id, :message)
+      params.require(:pickup).permit(:name, :email, :street_address, :driver_id, :message, :size)
     end
 end

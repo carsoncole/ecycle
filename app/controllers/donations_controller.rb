@@ -1,7 +1,7 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
   before_action :set_pickup, only: [:new, :show, :edit, :update, :destroy, :create]
-  before_action :require_login
+  before_action :require_login, except: [:new]
 
   # GET /donations
   def index

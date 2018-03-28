@@ -6,6 +6,7 @@ class CreatePickups < ActiveRecord::Migration[5.1]
       t.string :street_address
       t.string :message
       t.integer :driver_id
+      t.string :size
       t.timestamps
     end
   end

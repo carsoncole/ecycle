@@ -20,6 +20,10 @@
       = f.text_field :street_address, class: 'form-control'
   .form-group
     .field
+      = f.label :How_heavy_is_your_ewaste?
+      = f.select :size, options_for_select(Pickup::SIZES), {}, class: 'form-control'
+  .form-group
+    .field
       = f.label :message
       = f.text_area :message, class: 'form-control'
 
@@ -27,6 +31,6 @@
     .form-group
       .field
         = f.label :driver
-        = f.collection_select :driver_id, Driver.all, :id, :name, include_blank: 'Select driver ... '
+        = f.collection_select :driver_id, Driver.all, :id, :name, include_blank: 'Select driver ... ',class: 'form-control'
   .actions
     = f.submit 'Save', class: 'btn btn-lg btn-primary'

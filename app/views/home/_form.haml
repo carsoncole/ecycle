@@ -18,5 +18,9 @@
     .field
       = f.label :street_address
       = f.text_field :street_address, class: 'form-control'
+  .form-group
+    .field
+      = f.label :How_heavy_is_your_ewaste?
+      = f.select :size, options_for_select(Pickup::SIZES), {}, class: 'form-control'
   .actions.text-center
     = f.submit 'Schedule Pickup', class: 'btn btn-lg btn-block'

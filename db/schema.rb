@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180327220033) do
     t.string "street_address"
     t.string "message"
     t.integer "driver_id"
+    t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
