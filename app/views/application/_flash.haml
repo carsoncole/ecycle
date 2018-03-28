@@ -1,0 +1,16 @@
+
+.container
+  - if flash
+    .row
+      .col-md-2
+      .col-md-8
+        - if flash[:notice]
+          .alert.alert-success
+            = notice.html_safe
+        - if flash[:alert]
+          %br
+          .alert.alert-warning
+            = alert
+        - if flash[:error]
+          %br
+          .alert.alert-danger

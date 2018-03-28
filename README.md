@@ -1,24 +1,11 @@
-# README
+# Bainbridge E-Cycle
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application runs the site bainbridgeecycle.com, and includes marketing for the event, customer e-waste signups, and Troop pickup management.
 
-Things you may want to cover:
+* Rails 5.1, Ruby 2.3
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+The database is Sqlite3, which simplifies installation and management by not requiring additional components since this is the default for Rails.
 
 * Deployment instructions
 
-* ...
+... to be done.

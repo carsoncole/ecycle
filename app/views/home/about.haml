@@ -1,0 +1,54 @@
+#info
+  .container
+    %br
+    %h1 About
+
+    %p
+      = link_to "Boy Scout Troop 1496", 'http://bitroop1496.org', target: '_blank' 
+      will be holding its 12th annual Electronics Waste (E-Waste) Recycling Fundraiser on June 2, 2018!
+
+    .row
+      .col-md-2
+        = image_tag 'bsa-trademark.jpg'
+      .col-md-10
+        %p Funds generated from this event are used to defray the cost of Troop 1496 service projects around the island and leadership training and outdoor wilderness experiences for 60+ boys aged 10-17.  Recent service and Eagle projects by Troop 1496 scouts include invasive weed removal; new flagpoles at Rotary Field; planter boxes for residents of Island Rehab; Frisbee golf course at Hyla MS; remodel of BPA rehearsal space; firewood shed at Fay Bainbridge; meditation shelter at First Baptist Church; and West Sound Wildlife Shelter animal enclosure. 
+
+    %br
+
+    .row
+      .col-md-6
+        %h3 Drop Off
+        %p 
+          On Saturday, June 2, drop off your unused electronics at the First Baptist Church, located at the juncture of Hwy. 305 & Madison, between 8am and 3pm.
+
+        %p.text-center
+          = image_tag 'bainbridge-first-baptist.png'
+      .col-md-6
+        %h3 Pick Up
+        %p 
+          Easily schedule a pick up anywhere on Bainbridge Island by simply
+          = link_to "scheduling a pick up here.", root_path
+          Troop 1496 Boy Scouts will come by your home or business and pick up any electronic goods on Saturday, June 2.
+
+        %p.text-center
+          = image_tag 'truck.jpg'
+
+    .row
+      .col-md-12
+        %h4 Items accepted include:
+        %p
+          iPhones, Android phones, computer and gaming systems, copiers, TVs/stereos, and small household appliances. You may choose to have your computer memory destroyed and responsibly recycled, or professionally ‘scrubbed’ by a member of the Washington State Recyclers Association so that it can be refurbished for resale to others who could not otherwise afford them.
+
+        %h4 Items we can't accept:
+        %p Batteries, items containing gas.
+
+
+    = render 'suggested_donation_amounts'
+
+
+    %h3 E-Cycling Important Notes
+    %p Our E-waste event provides all donated electronics to PC Recycle (Bellevue, WA). PC Recycle refurbishes computers for resale to the extent possible. All computer-TV-monitor wastes are sent through the Washington Dept. of Ecology E-Cycle program where the waste is processed in Washington. For other wastes, PC Recycle sends metal wastes to a Washington company for refining, and other material goes to a company that participates in the “R2 Certification” and “EStewards Certification” programs, where most waste is processed in the U.S. The R2 Certification restricts waste processing to participating countries/facilities with environmentally and socially responsible practices for waste handling. PC Recycle is conscious of the concerns about downstream waste handling practices, as are their large business customers where many have downstream waste tracking requirements.
+
+    %p Computer memory drives are professionally destroyed or, with your authorization, “scrubbed” for refurbishing and resale. Smart phone memory is wiped and the device refurbished; older/broken phones are sent to a certified refiner. We recommend that owners remove and destroy all flash drives (USB, SD cards, etc.) prior to recycling.
+
+    %p Please do not bring loose batteries or items containing gas.

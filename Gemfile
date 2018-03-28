@@ -31,6 +31,8 @@ gem 'haml-rails'
 gem 'kaminari'
 gem 'font-awesome-sass'
 gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'clearance'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

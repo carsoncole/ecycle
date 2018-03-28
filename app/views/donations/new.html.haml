@@ -1,0 +1,10 @@
+.container
+  %h1 Make a Donation to Troop 1496
+
+  %p Making a donation to Troop 1496 helps to fund its numerous community service and Eagle Scout projects, as well as fund our program of molding upstanding young men. Make a donation via Paypal, or you can leave your donation attached to your goods. Checks can be made out to 'Troop 1496'.
+
+  %p= link_to "Make a donation via Paypal", '#', method: :get, class: 'btn btn-lg'
+
+  %br
+  = render 'suggested_donation_amounts'
+

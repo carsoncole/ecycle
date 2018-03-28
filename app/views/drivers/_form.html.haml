@@ -1,0 +1,23 @@
+= form_for @driver do |f|
+  - if @driver.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@driver.errors.count, "error")} prohibited this driver from being saved:"
+      %ul
+        - @driver.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group
+    .field
+      = f.label :name
+      = f.text_field :name, class: 'form-control', placeholder: 'Full name'
+  .form-group
+    .field
+      = f.label :email
+      = f.text_field :email, class: 'form-control', placeholder: 'Email'
+  .form-group
+    .field
+      = f.label :scout_names
+      = f.text_field :scout_names, class: 'form-control', placeholder: 'Enter names of Scouts'
+  %br
+  .actions
+    = f.submit class: 'btn btn-lg'

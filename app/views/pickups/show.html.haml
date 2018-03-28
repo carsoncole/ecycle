@@ -1,0 +1,34 @@
+.container
+
+  %h1 Pickup
+  %table.table
+    %tr
+      %th Name:
+      %td.text-right= @pickup.name
+    %tr
+      %th Email:
+      %td.text-right= @pickup.email
+    %tr
+      %th Street address:
+      %td.text-right= @pickup.street_address
+    %tr
+      %th Message:
+      %td.text-right= @pickup.message
+    - if cookies[:user]
+      %tr
+        %th Created:
+        %td.text-right= @pickup.created_at
+
+  - if cookies[:user]
+    %h4 Pickup Driver
+    %table.table
+      %tr
+        %th Driver:
+        %td.text-right
+          - if @pickup.driver
+            = @pickup.driver.name
+          - else
+            None assigned
+
+  = link_to 'Edit', edit_pickup_path(@pickup), class: 'btn btn-secondary'
+  = link_to 'Cancel', pickup_path(@pickup), method: :delete, data: { confirm: "Are you sure? Clicking 'OK' will cancel this pickup." }, class: 'btn btn-danger'

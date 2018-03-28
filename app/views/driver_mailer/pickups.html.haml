@@ -1,0 +1,35 @@
+!!!
+
+%html
+  %head
+    %meta(content='text/html; charset=UTF-8' http-equiv='Content-Type')
+  %body
+    %h1 Troop 1496 Driver Pickups
+
+    %p
+      = @driver.name + ','
+
+
+
+    %p
+      Below are your assigned E-Waste fundraiser pickups for June 2. The Scouts that are accompanying you are:
+      = @driver.scout_names
+
+    %p Pickups should be done between 9am and 2pm, and dropped off at the First Baptist Church by 2:30pm.
+
+    %p Lunch and breakfast are served! Stop by the church starting at 8am for breakfast, and after 12pm for lunch, for a Troop chow down!
+
+    %table.table(width='100%')
+      %thead
+        %tr
+          %th(align='left' padding='0.1em') Name
+          %th(align='left') Address
+          %th(align='left') Email
+          %th(align='left') Message    
+      - @pickups.each do |pickup|
+        %tbody
+          %tr
+            %td= pickup.name
+            %td= pickup.street_address
+            %td= pickup.email
+            %td.message= pickup.message

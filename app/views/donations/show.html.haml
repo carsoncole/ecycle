@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Pickup:
+  = @donation.pickup_id
+%p
+  %b Amount:
+  = @donation.amount
+
+= link_to 'Edit', edit_pickup_donation_path(@pickup, @donation)
+\|
+= link_to 'Back', pickups_path

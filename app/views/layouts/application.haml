@@ -1,0 +1,15 @@
+!!!
+%html(lang='en')
+  = render 'head'
+
+  %body
+    = render 'nav'
+
+    %br
+    %br
+    %br
+    %br
+
+    = render 'flash' if notice.present?
+
+    = yield

@@ -1,0 +1,26 @@
+%nav
+  .navbar.navbar-expand-lg.fixed-top.navbar-dark
+    = link_to "Bainbridge eCycle 2018", root_path, class: 'navbar-brand'
+    %button.navbar-toggler.custom-toggler{type: 'button', 'data-toggle': 'collapse', 'data-target': "#navbarSupportedContent" }
+      %span.navbar-toggler-icon
+    .collapse.navbar-collapse#navbarSupportedContent
+      %ul.navbar-nav.mr-auto
+        %li.nav-item= link_to "About", about_path, class: 'nav-link'
+        %li.nav-item= link_to "Schedule a Pickup", root_path, class: 'nav-link'
+        - if signed_in?
+          %li.nav-item= link_to 'Pickups', pickups_path, class: 'nav-link'
+          %li.nav-item= link_to 'Drivers', drivers_path, class: 'nav-link'
+
+      %ul.navbar-nav
+        - if cookies[:pickup_id] && Pickup.exists?(cookies[:pickup_id])
+          
+          %li.nav-item= link_to 'Your Pickup', pickup_path(Pickup.find(cookies[:pickup_id])), class: 'nav-link'
+
+        - if signed_in? 
+          %li.nav-item= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link'
+        - else
+          %li.nav-item= link_to 'Sign in', sign_in_path, class: 'nav-link'
+
+#flash
+  - flash.each do |key, value|
+    %div(class="flash #{key}")= value

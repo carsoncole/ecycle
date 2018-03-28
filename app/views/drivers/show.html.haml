@@ -1,0 +1,41 @@
+.container
+  %h1 Driver
+  %br
+  .row
+    .col-md-6
+      %table.table
+        %tr
+          %th Name:
+          %td.text-right= @driver.name
+        %tr
+          %th Email:
+          %td.text-right= @driver.email
+        %tr
+          %th Scouts:
+          %td.text-right= @driver.scout_names
+
+  .row
+    .col-md-12
+      %h4 Pickups
+      .table-responsive
+        %table.table.table-sm
+          %thead
+            %tr
+              %th Name
+              %th Address
+              %th Email
+              %th.message Message
+
+          %tbody
+            - @driver.pickups.each do |pickup|
+              %tr
+                %td= pickup.name
+                %td= pickup.street_address
+                %td= pickup.email
+                %td.message= pickup.message
+
+
+  .d-print-none
+    = link_to 'Edit', edit_driver_path(@driver)
+    \|
+    = link_to 'Back', drivers_path

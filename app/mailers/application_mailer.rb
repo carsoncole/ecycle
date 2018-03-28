@@ -1,4 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
   layout 'mailer'
+
+  # TODO Create mailers confirming Pickup
+  # TODO Create mailers to drivers with pickup list
 end

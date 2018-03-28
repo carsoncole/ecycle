@@ -1,0 +1,22 @@
+.container-fluid
+  %h1 Listing donations
+
+  %table.table
+    %thead
+      %tr
+        %th Pickup
+        %th Amount
+        %th
+        %th
+        %th
+
+    %tbody
+      - @donations.each do |donation|
+        %tr
+          %td= donation.pickup_id
+          %td= donation.amount
+          %td= link_to 'Show', pickup_donation_path(donation.pickup, donation)
+          %td= link_to 'Edit', edit_pickup_donation_path(donation.pickup, donation)
+          %td= link_to 'Destroy', pickup_donation_path(donation.pickup, donation), method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br
