@@ -1,7 +1,7 @@
 .container-fluid
   %h1 Pickups
 
-  %table.table
+  %table.table.table-sm
     %thead
       %tr
         %th Name
@@ -17,7 +17,11 @@
           %td= pickup.name
           %td= pickup.email
           %td= pickup.street_address
-          %td= pickup.driver.name if pickup.driver
+          %td
+            = pickup.driver.name if pickup.driver
+            = form_for pickup do |f|
+              = f.collection_select :driver_id, Driver.all, :id, :name
+
           %td= pickup.size
           %td
             = link_to 'Show', pickup
@@ -27,7 +31,7 @@
             = link_to 'Destroy', pickup, method: :delete, data: { confirm: 'Are you sure?' }
 
 
-
+    = submit_tag
 
   %br
 
