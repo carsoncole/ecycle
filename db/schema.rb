@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327220033) do
+ActiveRecord::Schema.define(version: 20180329153056) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "pickup_id"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20180327220033) do
     t.string "message"
     t.integer "driver_id"
     t.string "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.text "pickup_instructions", default: "Boy Scouts from our Troop will be picking up between 8am and 2pm on Saturday, June 2. Please have your e-waste outside on your curb, house porch, or in front of your garage or front door."
+    t.boolean "pickup_signups_enabled", default: false
+    t.string "contact_name"
+    t.string "contact_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

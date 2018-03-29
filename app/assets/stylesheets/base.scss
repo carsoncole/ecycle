@@ -6,7 +6,6 @@ $boy-scout-blue: #003F87;
 $boy-scout-green: #01713F;
 
 #home {
-  padding-top: 2em;
   h1 {
     font-size: 3.6em;
     font-weight: 900;
@@ -31,6 +30,12 @@ $boy-scout-green: #01713F;
 
 h1, h2, h3, h4 {
   color: $boy-scout-red;
+  padding-top: 1em;
+  padding-bottom: 0.3em;
+}
+
+.title h1 {
+  padding-top: 0;
 }
 
 
@@ -78,4 +83,10 @@ h1, h2, h3, h4 {
 
 th.message, td.message {
   width: 28em;
+}
+
+table.settings {
+  th {
+    width: 15em;
+  }
 }

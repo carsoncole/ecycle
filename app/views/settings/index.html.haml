@@ -1,0 +1,33 @@
+%h1 Listing settings
+
+%table
+  %thead
+    %tr
+      %th Dropoff start date
+      %th Dropoff end date
+      %th Pickup start date
+      %th Pickup end date
+      %th Pickup instructions
+      %th Pickup signups enabled
+      %th Contact email
+      %th
+      %th
+      %th
+
+  %tbody
+    - @settings.each do |setting|
+      %tr
+        %td= setting.dropoff_start_date
+        %td= setting.dropoff_end_date
+        %td= setting.pickup_start_date
+        %td= setting.pickup_end_date
+        %td= setting.pickup_instructions
+        %td= setting.pickup_signups_enabled
+        %td= setting.contact_email
+        %td= link_to 'Show', setting
+        %td= link_to 'Edit', edit_setting_path(setting)
+        %td= link_to 'Destroy', setting, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Setting', new_setting_path

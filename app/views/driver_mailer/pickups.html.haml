@@ -11,11 +11,12 @@
 
 
 
-    %p
-      Below are your assigned E-Waste fundraiser pickups for June 2. The Scouts that are accompanying you are:
-      = @driver.scout_names
+    - if @driver.scout_names.present?
+      %p
+        Below are your assigned E-Waste fundraiser pickups for June 2. The Scouts that are accompanying you are:
+        = @driver.scout_names
 
-    %p Pickups should be done between 9am and 2pm, and dropped off at the First Baptist Church by 2:30pm.
+    %p Pickups should be done between 8am and 2pm, and dropped off at the First Baptist Church by 2:30pm.
 
     %p Lunch and breakfast are served! Stop by the church starting at 8am for breakfast, and after 12pm for lunch, for a Troop chow down!
 

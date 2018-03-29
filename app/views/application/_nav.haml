@@ -6,7 +6,7 @@
     .collapse.navbar-collapse#navbarSupportedContent
       %ul.navbar-nav.mr-auto
         %li.nav-item= link_to "About", about_path, class: 'nav-link'
-        %li.nav-item= link_to "Signups Coming Soon!", root_path, class: 'nav-link'
+        %li.nav-item= link_to "Schedule a Pickup!", root_path, class: 'nav-link'
         - if signed_in?
           %li.nav-item= link_to 'Pickups', pickups_path, class: 'nav-link'
           %li.nav-item= link_to 'Drivers', drivers_path, class: 'nav-link'
@@ -17,6 +17,9 @@
           %li.nav-item= link_to 'Your Pickup', pickup_path(Pickup.find(cookies[:pickup_id])), class: 'nav-link'
 
         - if signed_in? 
+          %li.nav-item
+            = link_to settings_path, class: 'nav-link' do
+              .fa.fa-wrench
           %li.nav-item= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link'
         / - else
         /   %li.nav-item= link_to 'Sign in', sign_in_path, class: 'nav-link'

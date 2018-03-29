@@ -23,7 +23,7 @@
           %td= link_to 'Show', driver
           %td= link_to 'Edit', edit_driver_path(driver)
           %td= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn'
-          %td= button_to "Deliver", deliver_path(driver.id), data: { confirm: 'Are you sure? This will send an email to the Driver with all of their pickups.' }, class: 'btn'
+          %td= button_to "Email Pickups", deliver_path(driver.id), data: { confirm: 'Are you sure? This will send an email to the Driver with all of their pickups.' }, class: 'btn'
   %br
 
   = link_to 'New Driver', new_driver_path

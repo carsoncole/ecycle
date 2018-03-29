@@ -25,7 +25,7 @@ class PickupsController < ApplicationController
     @pickup = Pickup.new(pickup_params)
 
     if @pickup.save
-      redirect_to new_pickup_donation_path(@pickup), notice: "<h4 class='alert-heading'>Well done!</h4>We've scheduled a pickup of your e-waste! Boy Scouts will swing by sometime on June 2, so have it outside on your curb, house porch, or in front of your garage. Thanks again!"
+      redirect_to new_pickup_donation_path(@pickup), notice: "<h4 class='alert-heading'>Well done!</h4>We've scheduled a pickup of your e-waste! Boy Scouts from our Troop will be picking up between 8am and 2pm on Saturday, June 2. Please have your e-waste outside on your curb, house porch, or in front of your garage or front door. Thanks again!"
       cookies[:pickup_id] = @pickup.id
     else
       render :new
@@ -43,9 +43,8 @@ class PickupsController < ApplicationController
 
   # DELETE /pickups/1
   def destroy
-    # FIXME Delete pickup does not work
     @pickup.destroy
-    cookies.delete :user
+    cookies.delete :pickup_id
     redirect_to root_path, notice: 'Pickup was successfully destroyed.'
   end
 

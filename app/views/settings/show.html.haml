@@ -1,0 +1,29 @@
+.container
+  .row
+    .col-md-1
+    .col-md-10
+      %h1 Settings
+      %br
+      .table-responsive
+        %table.table.settings
+          %tbody
+            %tr
+              %th Pickup instructions:
+              %td.text-right= @setting.pickup_instructions
+            %tr
+              %th Pickup signups enabled:
+              %td.text-right
+                - if @setting.pickup_signups_enabled
+                  .font-weight-bold.text-success= "&#10003".html_safe
+                - else
+                  .font-weight-bold.text-danger= "&#x2717".html_safe
+            %tr
+              %th Contact name:
+              %td.text-right= @setting.contact_name
+            %tr
+              %th Contact email:
+              %td.text-right= @setting.contact_email
+
+            %tr
+              %th= link_to 'Edit', edit_setting_path(@setting)
+              %td

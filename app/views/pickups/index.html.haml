@@ -1,37 +1,40 @@
 .container-fluid
   %h1 Pickups
 
-  %table.table.table-sm
-    %thead
-      %tr
-        %th Name
-        %th Email
-        %th Street address
-        %th Driver
-        %th Size
-        %th
-
-    %tbody
-      - @pickups.each do |pickup|
+  .table-responsive
+    %table.table.table-sm
+      %thead
         %tr
-          %td= pickup.name
-          %td= pickup.email
-          %td= pickup.street_address
-          %td
-            = pickup.driver.name if pickup.driver
-            = form_for pickup do |f|
-              = f.collection_select :driver_id, Driver.all, :id, :name
+          %th Name
+          %th Email
+          %th Street address
+          %th Driver
+          %th Size
+          %th Created
+          %th
 
-          %td= pickup.size
-          %td
-            = link_to 'Show', pickup
-            = '|'
-            = link_to 'Edit', edit_pickup_path(pickup)
-            = '|'
-            = link_to 'Destroy', pickup, method: :delete, data: { confirm: 'Are you sure?' }
+      %tbody
+        - @pickups.each do |pickup|
+          %tr
+            %td= pickup.name
+            %td= pickup.email
+            %td= pickup.street_address
+            %td
+              - if pickup.driver
+                = pickup.driver.name if pickup.driver
+              - else
+                = link_to 'Assign', edit_pickup_path(pickup)
 
 
-    = submit_tag
+            %td= pickup.size
+            %td= nice_date_time(pickup.created_at)
+            %td
+              = link_to 'Show', pickup
+              = '|'
+              = link_to 'Edit', edit_pickup_path(pickup)
+              = '|'
+              = link_to 'Destroy', pickup, method: :delete, data: { confirm: 'Are you sure?' }
+
 
   %br
 

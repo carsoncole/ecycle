@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :settings
   resources :drivers
   resources :pickups do
     resources :donations
@@ -8,5 +9,4 @@ Rails.application.routes.draw do
   get 'donations' => 'donations#index', as: 'donations'
   post 'deliver/:driver_id' => 'pickups#deliver', as: 'deliver'
   get 'about' => 'home#about', as: 'about'
-  get 'logout' => 'home#logout', as: 'logout'
 end

@@ -10,6 +10,7 @@ module Bainbridgeecycle
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.time_zone = 'Pacific Time (US & Canada)'
 
     # FIXME Update this with correct URL
     config.action_mailer.default_url_options = { host: 'example.com' }

@@ -1,11 +1,10 @@
 #info
   .container
-    %br
     %h1 About
 
     %p
       = link_to "Boy Scout Troop 1496", 'http://bitroop1496.org', target: '_blank' 
-      will be holding its 12th annual Electronics Waste (E-Waste) Recycling Fundraiser on June 2, 2018!
+      will be holding its 12th annual Electronics Waste (E-Waste) Recycling Fundraiser on Saturday, June 2.
 
     .row
       .col-md-2
@@ -19,16 +18,14 @@
       .col-md-6
         %h3 Drop Off
         %p 
-          On Saturday, June 2, drop off your unused electronics at the First Baptist Church, located at the juncture of Hwy. 305 & Madison, between 8am and 3pm.
-
+          On June 2 drop off your unused electronics at the First Baptist Church, located at the juncture of Hwy. 305 & Madison, between 8am and 3pm.
         %p.text-center
           = image_tag 'bainbridge-first-baptist.png'
       .col-md-6
         %h3 Pick Up
         %p 
-          Easily schedule a pick up anywhere on Bainbridge Island by simply
-          = link_to "scheduling a pick up here.", root_path
-          Troop 1496 Boy Scouts will come by your home or business and pick up any electronic goods on Saturday, June 2.
+          On June 2 between 8am and 2pm, Troop 1496 Boy Scouts will come by your home or business and pick up any electronic goods that you would like recycled. Simply
+          = link_to "schedule a pick up here.", root_path
 
         %p.text-center
           = image_tag 'truck.jpg'
@@ -52,3 +49,14 @@
     %p Computer memory drives are professionally destroyed or, with your authorization, “scrubbed” for refurbishing and resale. Smart phone memory is wiped and the device refurbished; older/broken phones are sent to a certified refiner. We recommend that owners remove and destroy all flash drives (USB, SD cards, etc.) prior to recycling.
 
     %p Please do not bring loose batteries or items containing gas.
+
+    - if Setting.first.contact_name.present? && Setting.first.contact_name.present?
+      %h3 Questions?
+      %p
+        Please contact
+        = Setting.first.contact_name
+        = succeed(".") do
+          = surround("(", ")") do
+            = mail_to(Setting.first.contact_email)
+
+    %br

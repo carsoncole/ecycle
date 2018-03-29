@@ -17,7 +17,7 @@
   .form-group
     .field
       = f.label :street_address
-      = f.text_field :street_address, class: 'form-control'
+      = f.text_field :street_address, class: 'form-control', placeholder: 'Bainbridge Island street address'
   .form-group
     .field
       = f.label :How_heavy_is_your_ewaste?
@@ -25,9 +25,9 @@
   .form-group
     .field
       = f.label :message
-      = f.text_area :message, class: 'form-control'
+      = f.text_area :message, class: 'form-control', placeholder: "Anything else you'd like to tell us?"
 
-  - if cookies[:user]
+  - if signed_in?
     .form-group
       .field
         = f.label :driver

@@ -5,9 +5,4 @@ class HomeController < ApplicationController
 
   def about
   end
-
-  def logout
-    cookies.delete :user
-    redirect_to root_path
-  end
 end
