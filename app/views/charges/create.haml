@@ -1,0 +1,12 @@
+
+.container
+  .row
+    .col-md-12
+      %h1.text-center Thank You!
+
+      %p.text-center Boy Scout Troop 1496 appreciates your support.
+
+      %p.text-center
+        You have donated
+        = succeed(".") do
+          %b= number_to_currency(@amount.to_i / 100.00)

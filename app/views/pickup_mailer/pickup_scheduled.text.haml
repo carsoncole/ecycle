@@ -1,0 +1,10 @@
+Pickup Scheduled
+
+Your pickup is scheduled for June 2, between 8am and 2pm.
+
+Thank you for your support of Bainbridge Island Troop 1496.
+
+View your pickup details: https://bainbridgeecycle.com/pickups/#{@pickup.id}
+
+- if Setting.first.pickup_contact_name.present? and Setting.first.pickup_contact_email.present?
+  If you have any questions regarding your pickup, please contact #{ Setting.first.pickup_contact_name } at #{ mail_to Setting.first.pickup_contact_email }.

@@ -1,4 +1,3 @@
-# TODO Setup mailer
 Rails.application.configure do
   
   # Settings specified here will take precedence over those in config/application.rb.
@@ -68,6 +67,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = { from: 'Troop 1496 <bainbridgeislandtroop1496@gmail.com>'}
+  config.action_mailer.asset_host = "https://bainbridgeecycle.com"
 
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",

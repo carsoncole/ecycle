@@ -1,0 +1,49 @@
+.container
+
+  %h1 Donations
+
+  %p Donations can be made by check, cash, or credit card.
+
+  %h3 Check or Cash
+  %p To make a check or cash donation, simply leave it with your e-waste pickup.
+
+  %p
+    Checks should be made out to:
+    = surround('"', '"') do
+      %b Troop 1496
+
+  %h3 Credit Card
+  %p For credit card donations press 'Donate by Credit Card' below. 
+  = form_tag charges_path do
+    %article
+      - if flash[:error].present?
+        #error_explanation
+          = flash[:error]
+
+
+      %label.amount
+        %span
+          Amount: 
+          %b= number_to_currency(@donation_amount.to_i / 100.00)
+          = link_to "(Change)", new_donation_path
+          %br
+          Email:
+          = @pickup.email if @pickup
+          
+        
+    %br
+    %script(src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="#{ Rails.configuration.stripe[:publishable_key] }"
+            data-description="Bainbridge eCycle Donation"
+            data-amount="#{ @donation_amount.to_i }"
+            data-name="Boy Scout Troop 1496"
+            data-email="#{ @email }"
+            data-label="Donate by Credit Card"
+            data-panel-label="Donate"
+            data-allow-remember-me="false"
+            data-image="https://bainbridgeecycle.com/assets/bsa-trademark-afe72f047161d43d4713c9dabff08723f5ef934be9e265a1193c2700f067203d.jpg"
+            data-locale="auto")
+
+    %br
+    %br
+    %p.small.text-muted Donations are securely processed by Stripe. We do not retain your credit card information.

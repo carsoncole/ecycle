@@ -1,0 +1,37 @@
+.container
+  %h1 Charge
+
+  .table-responsive
+    %table.table
+      %tr 
+        %th Name
+        %td.text-right= @charge.pickup.name if @charge.pickup
+      %tr
+        %th Customer email
+        %td.text-right= @charge.customer_email
+      %tr
+        %th Customer ID
+        %td.text-right= @charge.customer_id
+      %tr
+        %th Stripe payment token
+        %td.text-right= @charge.stripe_payment_token
+      %tr
+        %th ID
+        %td.text-right= @charge.charge_id
+      %tr
+        %th Amount
+        %td.text-right= number_to_currency(@charge.charge_amount.to_i / 100.00)
+      %tr
+        %th Description
+        %td.text-right= @charge.charge_description
+      %tr
+        %th Paid
+        %td.text-right= @charge.charge_paid
+
+      %tr
+        %th Pickup
+        %td.text-right
+          - if @charge.pickup
+            = link_to "View", pickup_path(@charge.pickup)
+          - else
+            No related pickup

@@ -1,0 +1,38 @@
+.container-fluid
+  %h1 Stripe Charges
+  .row
+    .col-md-4
+      .table-responsive
+        %table.table.table-sm
+          %tr
+            %th Total charges count:
+            %td.text-right= Charge.all.count
+          %tr
+            %th Total charges:
+            %td.text-right= number_to_currency(Charge.sum(:charge_amount) / 100)
+  .row
+    .col-md-12
+      .table-responsive
+        %table.table.table-sm
+          %thead
+            %tr 
+              %th Customer Email
+              %th Customer ID
+              %th Charge Amount
+              %th Charge ID
+              %th Pickup
+              %th Created
+          
+          %tbody
+            - @charges.each do |charge|
+              %tr 
+                %td= charge.customer_email
+                %td= charge.customer_id.truncate(20)
+                %td= number_to_currency( charge.charge_amount.to_i / 100.00 )
+                %td= charge.charge_id.truncate(20) if charge.charge_id
+                %td
+                  - if charge.pickup_id
+                    = link_to charge.pickup_id, pickup_path(charge.pickup_id)
+                %td= charge.created_at.strftime("%b %d, '%y %I:%M %p")
+
+      = paginate @charges

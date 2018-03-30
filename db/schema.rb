@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329153056) do
+ActiveRecord::Schema.define(version: 20180330052153) do
 
-  create_table "donations", force: :cascade do |t|
+  create_table "charges", force: :cascade do |t|
+    t.string "customer_id"
+    t.string "customer_email"
+    t.string "stripe_payment_token"
+    t.string "charge_id"
+    t.integer "charge_amount"
+    t.string "charge_description"
+    t.boolean "charge_paid"
     t.integer "pickup_id"
-    t.decimal "amount", precision: 2, scale: 7, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180329153056) do
     t.string "message"
     t.integer "driver_id"
     t.string "size"
+    t.string "key", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,8 +48,11 @@ ActiveRecord::Schema.define(version: 20180329153056) do
   create_table "settings", force: :cascade do |t|
     t.text "pickup_instructions", default: "Boy Scouts from our Troop will be picking up between 8am and 2pm on Saturday, June 2. Please have your e-waste outside on your curb, house porch, or in front of your garage or front door."
     t.boolean "pickup_signups_enabled", default: false
-    t.string "contact_name"
-    t.string "contact_email"
+    t.boolean "donations_enabled", default: false
+    t.string "general_contact_name"
+    t.string "general_contact_email"
+    t.string "pickup_contact_name"
+    t.string "pickup_contact_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

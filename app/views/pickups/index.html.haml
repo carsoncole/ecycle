@@ -9,6 +9,7 @@
           %th Email
           %th Street address
           %th Driver
+          %th Donation
           %th Size
           %th Created
           %th
@@ -25,7 +26,10 @@
               - else
                 = link_to 'Assign', edit_pickup_path(pickup)
 
-
+            %td
+              - pickup.charges.each do |charge|
+                = link_to number_to_currency(charge.charge_amount / 100.00), charge_path(charge)
+                %br
             %td= pickup.size
             %td= nice_date_time(pickup.created_at)
             %td

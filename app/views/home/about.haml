@@ -50,13 +50,13 @@
 
     %p Please do not bring loose batteries or items containing gas.
 
-    - if Setting.first.contact_name.present? && Setting.first.contact_name.present?
+    - if Setting.first.general_contact_name.present? && Setting.first.general_contact_name.present?
       %h3 Questions?
       %p
         Please contact
-        = Setting.first.contact_name
+        = Setting.first.general_contact_name
         = succeed(".") do
           = surround("(", ")") do
-            = mail_to(Setting.first.contact_email)
+            = mail_to(Setting.first.general_contact_email)
 
     %br

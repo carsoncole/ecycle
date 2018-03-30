@@ -7,6 +7,7 @@ class CreatePickups < ActiveRecord::Migration[5.1]
       t.string :message
       t.integer :driver_id
       t.string :size
+      t.string :key, null: false
       t.timestamps
     end
   end

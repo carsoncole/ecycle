@@ -12,8 +12,8 @@ module Bainbridgeecycle
     config.load_defaults 5.1
     config.time_zone = 'Pacific Time (US & Canada)'
 
-    # FIXME Update this with correct URL
-    config.action_mailer.default_url_options = { host: 'example.com' }
+    config.action_mailer.default_url_options = { host: 'gmail.com' }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -16,11 +16,24 @@
       = f.check_box :pickup_signups_enabled, class: 'form-control'
   .form-group
     .field
-      = f.label :contact_name
-      = f.text_field :contact_name, class: 'form-control'
+      = f.label :donations_enabled
+      = f.check_box :donations_enabled, class: 'form-control'
   .form-group
     .field
-      = f.label :contact_email
-      = f.text_field :contact_email, class: 'form-control'
+      = f.label :general_contact_name
+      = f.text_field :general_contact_name, class: 'form-control'
+  .form-group
+    .field
+      = f.label :general_contact_email
+      = f.text_field :general_contact_email, class: 'form-control'
+  .form-group
+    .field
+      = f.label :pickup_contact_name
+      = f.text_field :pickup_contact_name, class: 'form-control'
+  .form-group
+    .field
+      = f.label :pickup_contact_email
+      = f.text_field :pickup_contact_email, class: 'form-control'
+
   .actions
     = f.submit 'Save', class: 'btn'

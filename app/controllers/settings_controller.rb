@@ -54,6 +54,6 @@ class SettingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def setting_params
-      params.require(:setting).permit(:dropoff_start_date, :dropoff_end_date, :pickup_start_date, :pickup_end_date, :pickup_instructions, :pickup_signups_enabled, :contact_name, :contact_email)
+      params.require(:setting).permit(:dropoff_start_date, :dropoff_end_date, :pickup_start_date, :pickup_end_date, :pickup_instructions, :pickup_signups_enabled, :pickup_contact_name, :pickup_contact_email, :general_contact_name, :general_contact_email, :donations_enabled)
     end
 end

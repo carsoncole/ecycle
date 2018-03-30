@@ -14,13 +14,30 @@
     %tr
       %th Size:
       %td.text-right= @pickup.size
+    - unless @pickup.message.blank?
+      %tr
+        %th Message:
+        %td.text-right= @pickup.message
+
     %tr
-      %th Message:
-      %td.text-right= @pickup.message
+      %th Donation:
+      %td.text-right
+        - if @pickup.charges.any?
+          %p Thank you for your donation!
+        = link_to "Make a donation", new_donation_path(pickup_id: @pickup.id), class: 'btn btn-primary'
+
     - if signed_in?
       %tr
         %th Created:
         %td.text-right= nice_date_time(@pickup.created_at)
+
+      - if @pickup.charges.any?
+        %tr
+          %th Charges:
+          %td.text-right
+            - @pickup.charges.each do |charge|
+              = link_to number_to_currency(charge.charge_amount / 100.00), charge_path(charge)
+              %br
 
   - if signed_in?
     %h4 Pickup Driver
@@ -34,4 +51,4 @@
             None assigned
 
   = link_to 'Edit', edit_pickup_path(@pickup), class: 'btn btn-secondary'
-  = link_to 'Cancel', pickup_path(@pickup), method: :delete, data: { confirm: "Are you sure? Clicking 'OK' will cancel this pickup." }, class: 'btn btn-danger'
+  = link_to 'Cancel Pickup', pickup_path(@pickup), method: :delete, data: { confirm: "Are you sure? Clicking 'OK' will cancel this pickup." }, class: 'btn btn-danger'
