@@ -1,29 +1,33 @@
 .container-fluid
   %h1 Drivers
 
-  %table.table.table-sm
-    %thead
-      %tr
-        %th Name
-        %th Email
-        %th Pickups
-        %th Scouts
-        %th
-        %th
-        %th
-        %th
-
-    %tbody
-      - @drivers.each do |driver|
+  = button_to "Email all Drivers with their Pickups", deliver_all_path, data: { confirm: 'Are you sure? This will send an email to all drivers with their pickups.' }, class: 'btn btn-primary'
+  %br
+  .table-responsive
+    %table.table.table-sm
+      %thead
         %tr
-          %td= driver.name
-          %td= driver.email
-          %td= driver.pickups.map {|p| p.id }.join(',')
-          %td= driver.scout_names
-          %td= link_to 'Show', driver
-          %td= link_to 'Edit', edit_driver_path(driver)
-          %td= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn'
-          %td= button_to "Email Pickups", deliver_path(driver.id), data: { confirm: 'Are you sure? This will send an email to the Driver with all of their pickups.' }, class: 'btn'
+          %th Name
+          %th Email
+          %th Pickups
+          %th Scouts
+          %th
+          %th
+
+      %tbody
+        - @drivers.each do |driver|
+          %tr
+            %td= driver.name
+            %td= driver.email
+            %td= driver.pickups.map {|p| p.id }.join(',')
+            %td= driver.scout_names
+            %td
+              = link_to 'Show', driver
+              \|
+              = link_to 'Edit', edit_driver_path(driver)
+              \|
+              = link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }
+            %td= button_to "Email Pickups", deliver_path(driver.id), data: { confirm: 'Are you sure? This will send an email to the Driver with all of their pickups.' }, class: 'btn btn-primary'
   %br
 
   = link_to 'New Driver', new_driver_path

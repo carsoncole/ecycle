@@ -5,8 +5,8 @@
   %body(style='text-align:center')
     %div(style='text-align:center')= image_tag "https://bainbridgeecycle.com/bsa-trademark.jpg"
     %h1(style="text-align:center;font-size:1.2") Pickup Scheduled
-    %p(style="text-align:center") Your pickup is scheduled for June 2, between 8am and 2pm.
-
+    %p(style="text-align:center")
+      = @pickup.name + ', ' + Setting.first_or_create.pickup_instructions
 
     %h2(style="text-align:center;margin-bottom:0") Pickup Details
     Address:
@@ -15,7 +15,7 @@
     Pickup size:
     = @pickup.size
     %br
-    = link_to "View your pickup details", "https://bainbridgeecycle.com/pickups/#{@pickup.id}?key=#{@pickup.key}"
+    = link_to "Modify your pickup", "https://bainbridgeecycle.com/pickups/#{@pickup.id}?key=#{@pickup.key}"
 
     %br
     %br

@@ -1,15 +1,12 @@
 !!!
-
 %html
   %head
     %meta(content='text/html; charset=UTF-8' http-equiv='Content-Type')
   %body
-    %h1 Troop 1496 Driver Pickups
+    %h2 Troop 1496 Driver Pickups
 
     %p
       = @driver.name + ','
-
-
 
     - if @driver.scout_names.present?
       %p
@@ -20,12 +17,19 @@
 
     %p Lunch and breakfast are served! Stop by the church starting at 8am for breakfast, and after 12pm for lunch, for a Troop chow down!
 
+    - if Setting.first.pickup_contact_name.present? && Setting.first.pickup_contact_email.present?
+      %p
+        Any questions? Contact
+        = Setting.first.pickup_contact_name
+        = Setting.first.pickup_contact_email
+
     %table.table(width='100%')
       %thead
         %tr
           %th(align='left' padding='0.1em') Name
           %th(align='left') Address
           %th(align='left') Email
+          %th(align='left') Size
           %th(align='left') Message    
       - @pickups.each do |pickup|
         %tbody
@@ -33,4 +37,5 @@
             %td= pickup.name
             %td= pickup.street_address
             %td= pickup.email
+            %td= pickup.size
             %td.message= pickup.message

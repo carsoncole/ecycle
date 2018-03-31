@@ -1,3 +1,4 @@
+# OPTIMIZE Driver selection dropdown needs format improvement
 class PickupsController < ApplicationController
   before_action :set_pickup, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:index]
@@ -10,12 +11,7 @@ class PickupsController < ApplicationController
   # GET /pickups/1s
   def show
     unless signed_in?
-      puts 'pass1'
-      puts params[:key]
-      puts @pickup.key
-      puts valid_key?
       if valid_key?
-        puts 'pass2'
         cookies[:pickup_id] = @pickup.id
         cookies[:key] = @pickup.key
       else
@@ -43,7 +39,7 @@ class PickupsController < ApplicationController
       cookies[:pickup_id] = @pickup.id
       cookies[:key] = @pickup.key
       PickupMailer.pickup_scheduled(@pickup.id).deliver_now
-      redirect_to new_donation_path(pickup_id: @pickup), notice: "<h4 class='alert-heading'>Well done!</h4><p>We've scheduled a pickup of your e-waste! Boy Scouts from our Troop will be picking up between 8am and 2pm on Saturday, June 2. Please have your e-waste outside on your curb, house porch, or in front of your garage or front door. Thanks again!</p><hr><h4>Will you consider making a donation?</h4><p>Donations go a long way towards supporting our Troop, our Boy Scouts, and the many community service projects they engage in.</p>"
+      redirect_to new_donation_path(pickup_id: @pickup), notice: "<p>We've scheduled a pickup of your e-waste! Boy Scouts from our Troop will be picking up between 8am and 2pm on Saturday, June 2. Please have your e-waste outside on your curb, house porch, or in front of your garage or front door. Thanks again!</p><hr><h4>Would you like to make a donation?</h4><p>Donations go a long way towards supporting our Troop, our Boy Scouts, and the many community service projects they engage in. See below recommended amounts based on the quantity of e-waste you want recycled.</p>"
     else
       render :new
     end
@@ -70,7 +66,14 @@ class PickupsController < ApplicationController
 
   def deliver
     DriverMailer.pickups(params[:driver_id]).deliver_now
-    redirect_to drivers_path, notice: 'Drive was emailed their pickups.'
+    redirect_to drivers_path, notice: 'Driver was emailed their pickups.'
+  end
+
+  def deliver_all
+    Driver.all.each do |driver|
+      DriverMailer.pickups(driver.id).deliver_now
+    end
+    redirect_to drivers_path, notice: 'All drivers were emailed their pickups.'
   end
 
   private

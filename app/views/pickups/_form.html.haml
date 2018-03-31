@@ -31,6 +31,6 @@
     .form-group
       .field
         = f.label :driver
-        = f.collection_select :driver_id, Driver.all, :id, :name, include_blank: 'Select driver ... ',class: 'form-control'
+        = f.collection_select :driver_id, Driver.all, :id, :name, include_blank: 'Select driver ... ', class: 'form-control'
   .actions
     = f.submit 'Save', class: 'btn btn-lg btn-primary'

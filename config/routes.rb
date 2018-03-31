@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   root 'home#index'
   post 'deliver/:driver_id' => 'pickups#deliver', as: 'deliver'
+  post 'deliver-all' => 'pickups#deliver_all', as: 'deliver_all'
   get 'about' => 'home#about', as: 'about'
 end
