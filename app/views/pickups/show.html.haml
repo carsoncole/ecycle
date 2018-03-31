@@ -19,12 +19,19 @@
         %th Message:
         %td.text-right= @pickup.message
 
-    %tr
-      %th Donation:
-      %td.text-right
-        - if @pickup.charges.any?
-          %p Thank you for your donation!
-        = link_to "Make a donation", new_donation_path(pickup_id: @pickup.id), class: 'btn btn-primary'
+    - unless signed_in?
+      %tr
+        %th Donation:
+        %td.text-right
+          - @pickup.charges.each do |charge|
+            %p
+              Thank you for your 
+              = number_to_currency(charge.charge_amount / 100.00)
+              donation!
+          - if @pickup.charges.any?
+            = link_to "Make another donation", new_donation_path(pickup_id: @pickup.id), class: 'btn btn-primary'
+          - else
+            = link_to "Make a donation", new_donation_path(pickup_id: @pickup.id), class: 'btn btn-primary'
 
     - if signed_in?
       %tr
@@ -33,7 +40,7 @@
 
       - if @pickup.charges.any?
         %tr
-          %th Charges:
+          %th Donations:
           %td.text-right
             - @pickup.charges.each do |charge|
               = link_to number_to_currency(charge.charge_amount / 100.00), charge_path(charge)
@@ -50,5 +57,5 @@
           - else
             None assigned
 
-  = link_to 'Edit', edit_pickup_path(@pickup), class: 'btn btn-secondary'
-  = link_to 'Cancel Pickup', pickup_path(@pickup), method: :delete, data: { confirm: "Are you sure? Clicking 'OK' will cancel this pickup." }, class: 'btn btn-danger'
+  = link_to 'Edit', edit_pickup_path(@pickup, key: @pickup.key), class: 'btn btn-secondary'
+  = link_to 'Cancel Pickup', pickup_path(@pickup, key: @pickup.key), method: :delete, data: { confirm: "Are you sure? Clicking 'OK' will cancel this pickup." }, class: 'btn btn-danger'

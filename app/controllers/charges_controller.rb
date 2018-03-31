@@ -2,7 +2,7 @@ class ChargesController < ApplicationController
   before_action :require_login, only: [:index]
 
   def index
-    @charges = Charge.order(created_at: :desc).page(params[:page]).per(25)
+    @charges = Charge.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show
@@ -10,8 +10,11 @@ class ChargesController < ApplicationController
   end
 
   def new
-    # @donation = Donation.find(cookies[:donation_id]) rescue nil
-    @donation_amount = cookies[:donation_amount]
+    if params[:donation_amount]
+      @donation_amount = params[:donation_amount].to_i * 100
+    else
+      @donation_amount = cookies[:donation_amount]
+    end
     @pickup = Pickup.find(cookies[:pickup_id]) if cookies[:pickup_id]
 
     if @pickup

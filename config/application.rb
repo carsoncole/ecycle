@@ -11,7 +11,6 @@ module Bainbridgeecycle
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.time_zone = 'Pacific Time (US & Canada)'
-
     config.action_mailer.default_url_options = { host: 'gmail.com' }
 
     # Settings in config/environments/* take precedence over those specified here.

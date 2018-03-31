@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
   def index
     @pickup = Pickup.new
-    cookies.delete(:pickup_id) if signed_in?
+    if signed_in?
+      cookies.delete(:pickup_id) 
+      cookies.delete(:key)
+    end
   end
 
   def about

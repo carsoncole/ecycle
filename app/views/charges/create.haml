@@ -10,3 +10,8 @@
         You have donated
         = succeed(".") do
           %b= number_to_currency(@amount.to_i / 100.00)
+
+      %br
+
+      %p.text-center
+        = link_to "Your Pickup", pickup_path(@pickup, key: @pickup.key)

@@ -21,9 +21,9 @@ $boy-scout-green: #01713F;
   }
 
   .title {
-    padding: 1.5em;
-    margin-top: 1.5em;
-    margin-bottom: 3em;
+    padding: 1.2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
     border: 3px solid $black;
   }
 }
@@ -97,4 +97,11 @@ table.settings {
   line-height: 44px !important;
   background-image: none !important;
   background-color: #003F87 !important;
+}
+
+nav.pagination {
+  .page, .next, .last, .first {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
 }

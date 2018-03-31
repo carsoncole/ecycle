@@ -1,4 +1,3 @@
-# TODO Add key for viewing a pickup
 class PickupsController < ApplicationController
   before_action :set_pickup, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:index]
@@ -11,7 +10,15 @@ class PickupsController < ApplicationController
   # GET /pickups/1s
   def show
     unless signed_in?
-      unless @pickup.key == params[:key]
+      puts 'pass1'
+      puts params[:key]
+      puts @pickup.key
+      puts valid_key?
+      if valid_key?
+        puts 'pass2'
+        cookies[:pickup_id] = @pickup.id
+        cookies[:key] = @pickup.key
+      else
         redirect_to root_path
       end
     end
@@ -24,6 +31,7 @@ class PickupsController < ApplicationController
 
   # GET /pickups/1/edit
   def edit
+    confirm_key!
   end
 
   # POST /pickups
@@ -41,10 +49,10 @@ class PickupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pickups/1
+  # TODO Add confirm_key! check to update
   def update
     if @pickup.update(pickup_params)
-      redirect_to @pickup, notice: 'Pickup was successfully updated.'
+      redirect_to pickup_path(@pickup, key: @pickup.key), notice: 'Pickup was successfully updated.'
     else
       render :edit
     end
@@ -52,10 +60,12 @@ class PickupsController < ApplicationController
 
   # DELETE /pickups/1
   def destroy
+    confirm_key!
     @pickup.charges.update_all(pickup_id: nil)
     @pickup.destroy
     cookies.delete :pickup_id
-    redirect_to root_path, notice: 'Pickup was successfully destroyed.'
+    cookies.delete :key
+    redirect_to root_path, notice: 'Your pickup was cancelled.'
   end
 
   def deliver
@@ -64,16 +74,30 @@ class PickupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_pickup
-      @pickup = Pickup.find(params[:id])
-      unless signed_in?
-        cookies[:pickup_id] = @pickup.id
+      @pickup = Pickup.find(params[:id]) rescue nil
+      unless @pickup
+        redirect_to root_path, notice: '<h4>Ooops. That pickup does not exist</h3><p>It has either been cancelled or never existed.</p>' 
       end
     end
 
-    # Only allow a trusted parameter "white list" through.
     def pickup_params
       params.require(:pickup).permit(:name, :email, :street_address, :driver_id, :message, :size)
+    end
+
+    def confirm_key!
+      unless signed_in?
+        unless @pickup && @pickup.key == params[:key]
+          redirect_to root_path
+        end
+      end    
+    end
+
+    def valid_key?
+      if params[:key] == @pickup.key 
+        true
+      else 
+        false
+      end
     end
 end

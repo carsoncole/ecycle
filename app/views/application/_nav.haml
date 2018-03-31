@@ -5,14 +5,14 @@
       %span.navbar-toggler-icon
     .collapse.navbar-collapse#navbarSupportedContent
       %ul.navbar-nav.mr-auto
-        %li.nav-item= link_to "About", about_path, class: 'nav-link'
-        %li.nav-item= link_to "Schedule a Pickup", root_path, class: 'nav-link'
-        %li.nav-item= link_to "Make a Donation", new_donation_path, class: 'nav-link'
         - if signed_in?
           %li.nav-item= link_to 'Pickups', pickups_path, class: 'nav-link'
           %li.nav-item= link_to 'Drivers', drivers_path, class: 'nav-link'
-          %li.nav-item= link_to 'Charges', charges_path, class: 'nav-link'
-
+          %li.nav-item= link_to 'Donations', charges_path, class: 'nav-link'
+        - else
+          %li.nav-item= link_to "About", about_path, class: 'nav-link'
+          %li.nav-item= link_to "Schedule a Pickup", root_path, class: 'nav-link'
+          %li.nav-item= link_to "Make a Donation", new_donation_path, class: 'nav-link'
       %ul.navbar-nav
         - if cookies[:pickup_id] && Pickup.exists?(cookies[:pickup_id])
           

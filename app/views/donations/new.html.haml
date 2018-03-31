@@ -13,10 +13,19 @@
         .row
           .col-md-2
           .col-md-8
+            %p.text-center
+              = link_to "$100", donations_path(amount: 100), method: :post
+              \|
+              = link_to "$50", donations_path(amount: 50), method: :post
+              \|
+              = link_to "$25", donations_path(amount: 25), method: :post
+              \|
+              = link_to "$10", donations_path(amount: 10), method: :post
+
             = form_tag donations_path do
               .form-group.row
-                = label_tag :amount, nil, class: 'col-sm-4 col-form-label text-right'
-                .col-sm-4
+                = label_tag 'amount $', nil, class: 'col-sm-6 col-form-label text-right'
+                .col-sm-3
                   = text_field_tag :amount, nil,class: 'form-control'
 
               .actions.text-center
