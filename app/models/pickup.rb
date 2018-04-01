@@ -8,10 +8,15 @@ class Pickup < ApplicationRecord
 
   geocoded_by :address
   before_validation :set_key!, unless: Proc.new { |p| p.key.present? }
-  after_validation :geocode
+  after_validation :geocode, :if => lambda{ |p| p.street_address_changed? }
 
   def address
     street_address + ', ' + 'Bainbridge Island, WA, US'
+  end
+
+  # For external linking text to map app
+  def link_geo
+    "geo:" + self.latitude.to_s + ',' + self.longitude.to_s
   end
 
   def set_key!

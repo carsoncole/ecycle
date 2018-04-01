@@ -3,10 +3,14 @@
   %br
   .row
     .col-md-6
-      %table.table
+      %table.table.table-sm
         %tr
           %th Name:
           %td.text-right= @driver.name
+        %tr
+          %th Starting street address:
+          %td.text-right= @driver.street_address
+
         %tr
           %th Email:
           %td.text-right= @driver.email
@@ -23,6 +27,7 @@
             %tr
               %th Name
               %th Address
+              %th Miles
               %th Email
               %th.message Message
 
@@ -30,7 +35,9 @@
             - @driver.pickups.each do |pickup|
               %tr
                 %td= pickup.name
-                %td= pickup.street_address
+                %td
+                  = link_to pickup.street_address, "maps:maps.google.com/q=" + pickup.address, target: '_blank'
+                %td= pickup.distance_from(@driver.address).round(2)
                 %td= pickup.email
                 %td.message= pickup.message
 

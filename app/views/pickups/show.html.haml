@@ -54,7 +54,7 @@
         %th Driver:
         %td.text-right
           - if @pickup.driver
-            = @pickup.driver.name
+            = link_to @pickup.driver.name, driver_path(@pickup.driver)
           - else
             None assigned
 

@@ -54,6 +54,6 @@ class DriversController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def driver_params
-      params.require(:driver).permit(:name, :email, :scout_names)
+      params.require(:driver).permit(:name, :email, :scout_names, :street_address)
     end
 end

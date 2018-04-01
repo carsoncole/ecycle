@@ -12,6 +12,10 @@
       = f.text_field :name, class: 'form-control', placeholder: 'Full name'
   .form-group
     .field
+      = f.label :street_address
+      = f.text_field :street_address, class: 'form-control', placeholder: 'Street address'
+  .form-group
+    .field
       = f.label :email
       = f.text_field :email, class: 'form-control', placeholder: 'Email'
   .form-group
@@ -20,4 +24,5 @@
       = f.text_field :scout_names, class: 'form-control', placeholder: 'Enter names of Scouts'
   %br
   .actions
-    = f.submit 'Signup Driver', class: 'btn btn-lg'
+    = f.submit class: 'btn btn-lg'
+  %br
