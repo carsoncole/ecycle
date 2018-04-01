@@ -37,6 +37,7 @@ gem 'jquery-rails'
 gem 'clearance'
 gem 'stripe'
 gem 'geocoder', github: "alexreisner/geocoder", branch: 'master'
+gem 'exception_notification'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
