@@ -34,7 +34,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'clearance'
 gem 'stripe'
-gem 'geocoder', branch: 'master'
+gem 'geocoder', github: "alexreisner/geocoder", branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
