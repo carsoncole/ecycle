@@ -34,8 +34,11 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'clearance'
 gem 'stripe'
-gem 'geocoder', github: "alexreisner/geocoder", branch: 'master'
 gem 'exception_notification', github: "smartinez87/exception_notification", branch: 'master'
+
+# Mapping
+gem 'geocoder', github: "alexreisner/geocoder", branch: 'master'
+gem 'gmaps4rails', github: "apneadiving/Google-Maps-for-Rails", branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

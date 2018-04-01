@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20180401065110) do
     t.integer "driver_id"
     t.string "size"
     t.string "key", null: false
-    t.decimal "latitude", precision: 13, scale: 8
-    t.decimal "longitude", precision: 13, scale: 8
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

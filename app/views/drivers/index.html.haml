@@ -1,7 +1,10 @@
 .container-fluid
   %h1 Drivers
 
-  = button_to "Email all Drivers with their Pickups", deliver_all_path, data: { confirm: 'Are you sure? This will send an email to all drivers with their pickups.' }, class: 'btn btn-primary'
+  = link_to "Pickups Map", map_it_path
+  %br
+  %br
+  %span= button_to "Email all Drivers their Pickups", deliver_all_path, data: { confirm: 'Are you sure? This will send an email to all drivers with their pickups.' }, class: 'btn btn-sm'
   %br
   .table-responsive
     %table.table.table-sm
@@ -27,7 +30,7 @@
               = link_to 'Edit', edit_driver_path(driver)
               \|
               = link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }
-            %td= button_to "Email Pickups", deliver_path(driver.id), data: { confirm: 'Are you sure? This will send an email to the Driver with all of their pickups.' }, class: 'btn btn-primary'
+            %td= button_to "Email Pickups", deliver_path(driver.id), data: { confirm: 'Are you sure? This will send an email to the Driver with all of their pickups.' }, class: 'btn btn-sm'
   %br
 
   = link_to 'New Driver', new_driver_path

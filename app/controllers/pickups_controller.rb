@@ -1,7 +1,7 @@
 # OPTIMIZE Driver selection dropdown needs format improvement
 class PickupsController < ApplicationController
   before_action :set_pickup, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:index]
+  before_action :require_login, only: [:index, :map]
   before_action :require_valid_cookies, only: [:show, :edit, :update, :destroy]
 
   # GET /pickups
@@ -61,6 +61,16 @@ class PickupsController < ApplicationController
       DriverMailer.pickups(driver.id).deliver_now
     end
     redirect_to drivers_path, notice: 'All drivers were emailed their pickups.'
+  end
+
+  def map
+    @pickups = Pickup.all
+    @hash = Gmaps4rails.build_markers(@pickups) do |pickup, marker|
+      marker.lat pickup.latitude.to_f
+      marker.lng pickup.longitude.to_f
+      marker.infowindow pickup.name_address
+  
+    end
   end
 
   private

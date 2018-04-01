@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post 'deliver-all' => 'pickups#deliver_all', as: 'deliver_all'
   get 'about' => 'home#about', as: 'about'
   get 'thank-you' => 'donations#thank_you', as: 'thank_you'
+  get 'map' => 'pickups#map', as: 'map_it'
 end

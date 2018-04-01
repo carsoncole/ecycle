@@ -14,6 +14,10 @@ class Pickup < ApplicationRecord
     street_address + ', ' + 'Bainbridge Island, WA, US'
   end
 
+  def name_address
+    name + ' ('+ street_address + ')'
+  end
+
   # For external linking text to map app
   def link_geo
     "geo:" + self.latitude.to_s + ',' + self.longitude.to_s

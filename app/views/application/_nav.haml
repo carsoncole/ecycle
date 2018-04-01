@@ -21,6 +21,9 @@
           %li.nav-item
             = link_to settings_path, class: 'nav-link' do
               .fa.fa-wrench
-          %li.nav-item= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link'
+          %li.nav-item
+            = link_to sign_out_path, method: :delete, class: 'nav-link' do
+              .fas.fa-sign-out-alt
+
         / - else
         /   %li.nav-item= link_to 'Sign in', sign_in_path, class: 'nav-link'

@@ -6,6 +6,13 @@ GIT
     geocoder (1.4.7)
 
 GIT
+  remote: https://github.com/apneadiving/Google-Maps-for-Rails.git
+  revision: 2537e2a37b87aeebab07028057f30d1e112d6ae1
+  branch: master
+  specs:
+    gmaps4rails (2.1.2)
+
+GIT
   remote: https://github.com/smartinez87/exception_notification.git
   revision: dec18c97698035dd720e5f1078e265ef55db7ee2
   branch: master
@@ -251,6 +258,7 @@ DEPENDENCIES
   exception_notification!
   font-awesome-sass
   geocoder!
+  gmaps4rails!
   haml-rails
   jquery-rails
   kaminari

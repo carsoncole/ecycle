@@ -8,8 +8,8 @@ class CreatePickups < ActiveRecord::Migration[5.1]
       t.integer :driver_id
       t.string :size
       t.string :key, null: false
-      t.decimal :latitude, scale: 8, precision: 13
-      t.decimal :longitude, scale: 8, precision: 13
+      t.float :latitude
+      t.float :longitude
       t.timestamps
     end
   end
