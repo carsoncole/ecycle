@@ -5,13 +5,19 @@
       #clearance.sign-up
         %h2= t(".title")
 
-        = form_for @user do |form|
-          = render partial: '/users/form', object: form
 
-          .submit-field
-            = form.submit "Signup", class: 'btn btn-lg form-control'
+        - if ( Setting.first_or_create.allow_user_signups && params[:new_user_key] == Setting.first_or_create.new_user_key ) || User.all.empty?
+          = form_for @user do |form|
+            = render partial: '/users/form', object: form
 
-          %br
-          .other-links
-            = link_to t(".sign_in"), sign_in_path 
+            .submit-field
+              = form.submit "Signup", class: 'btn btn-lg form-control'
+
+            %br
+            .other-links
+              = link_to t(".sign_in"), sign_in_path 
+
+        - else
+          .alert.alert-info
+            Sign-ups are disabled.
 

@@ -11,7 +11,8 @@
           %th Driver
           %th Donation
           %th Size
-          %th Created
+          %th Latitude
+          %th Longitude
           %th
 
       %tbody
@@ -31,13 +32,14 @@
                 = link_to number_to_currency(charge.charge_amount / 100.00), charge_path(charge)
                 %br
             %td= pickup.size
-            %td= nice_date_time(pickup.created_at)
+            %td= pickup.latitude
+            %td= pickup.longitude
             %td
               = link_to 'Show', pickup
               = '|'
               = link_to 'Edit', edit_pickup_path(pickup)
-              = '|'
-              = link_to 'Destroy', pickup, method: :delete, data: { confirm: 'Are you sure?' }
+              / = '|'
+              / = link_to 'Destroy', pickup, method: :delete, data: { confirm: 'Are you sure?' }
 
 
   %br

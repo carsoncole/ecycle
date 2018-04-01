@@ -25,6 +25,13 @@
                 - else
                   .font-weight-bold.text-danger= "&#x2717".html_safe
             %tr
+              %th Allow user signups:
+              %td.text-right
+                - if @setting.allow_user_signups
+                  .font-weight-bold.text-success= "&#10003".html_safe
+                - else
+                  .font-weight-bold.text-danger= "&#x2717".html_safe
+            %tr
               %th General contact name:
               %td.text-right= @setting.general_contact_name
             %tr
@@ -37,6 +44,10 @@
               %th Pickup contact email:
               %td.text-right= @setting.pickup_contact_email
 
+            %tr
+              %th New user URL:
+              %td.text-right
+                = "#{ root_url }sign_up?new_user_key=" + @setting.new_user_key
 
             %tr
               %th= link_to 'Edit', edit_setting_path(@setting)

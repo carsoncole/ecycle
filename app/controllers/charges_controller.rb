@@ -54,9 +54,12 @@ class ChargesController < ApplicationController
     @charge.charge_paid = charge.paid
     @charge.save
 
+    redirect_to thank_you_path
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
+  
   end
 
 end

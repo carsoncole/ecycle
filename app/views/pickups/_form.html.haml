@@ -21,7 +21,7 @@
   .form-group
     .field
       = f.label :How_heavy_is_your_ewaste?
-      = f.select :size, options_for_select(Pickup::SIZES), {}, class: 'form-control'
+      = f.select :size, options_for_select(Pickup::SIZES, @pickup.size),{}, class: 'form-control'
   .form-group
     .field
       = f.label :message

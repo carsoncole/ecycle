@@ -14,37 +14,38 @@
     %tr
       %th Size:
       %td.text-right= @pickup.size
+    %tr
+      %th key:
+      %td.text-right= @pickup.key
     - unless @pickup.message.blank?
       %tr
         %th Message:
         %td.text-right= @pickup.message
-
-    - unless signed_in?
+    - if !signed_in? || (signed_in? && cookies[:pickup_id].to_i == @pickup.id)
       %tr
         %th Donation:
         %td.text-right
           - @pickup.charges.each do |charge|
-            %p
-              Thank you for your 
-              = number_to_currency(charge.charge_amount / 100.00)
-              donation!
+            Thank you for your 
+            = number_to_currency(charge.charge_amount / 100.00)
+            donation!
+            %br
           - if @pickup.charges.any?
+            %br
             = link_to "Make another donation", new_donation_path(pickup_id: @pickup.id), class: 'btn btn-primary'
           - else
-            = link_to "Make a donation", new_donation_path(pickup_id: @pickup.id), class: 'btn btn-primary'
+            = link_to "Make a donation", new_donation_path, class: 'btn btn-primary'
 
     - if signed_in?
       %tr
+        %th Latitude:
+        %td.text-right= @pickup.latitude
+      %tr
+        %th Longitude:
+        %td.text-right= @pickup.longitude
+      %tr
         %th Created:
         %td.text-right= nice_date_time(@pickup.created_at)
-
-      - if @pickup.charges.any?
-        %tr
-          %th Donations:
-          %td.text-right
-            - @pickup.charges.each do |charge|
-              = link_to number_to_currency(charge.charge_amount / 100.00), charge_path(charge)
-              %br
 
   - if signed_in?
     %h4 Pickup Driver
@@ -57,5 +58,5 @@
           - else
             None assigned
 
-  = link_to 'Edit', edit_pickup_path(@pickup, key: @pickup.key), class: 'btn btn-secondary'
-  = link_to 'Cancel Pickup', pickup_path(@pickup, key: @pickup.key), method: :delete, data: { confirm: "Are you sure? Clicking 'OK' will cancel this pickup." }, class: 'btn btn-danger'
+  = link_to 'Edit', edit_pickup_path(@pickup), class: 'btn btn-secondary'
+  = link_to 'Cancel Pickup', pickup_path(@pickup), method: :delete, data: { confirm: "Are you sure? Clicking 'OK' will cancel this pickup." }, class: 'btn btn-danger'

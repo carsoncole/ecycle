@@ -1,0 +1,13 @@
+
+.container
+  .row
+    .col-md-12
+      %h1.text-center Thank you for your donation!
+
+      %p.text-center Boy Scout Troop 1496 appreciates your support.
+
+      %br
+
+      - if current_pickup
+        %p.text-center
+          = link_to "Pickup Details", pickup_path(current_pickup.id)

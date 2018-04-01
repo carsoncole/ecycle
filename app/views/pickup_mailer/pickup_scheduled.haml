@@ -15,7 +15,12 @@
     Pickup size:
     = @pickup.size
     %br
-    = link_to "Modify your pickup", "https://bainbridgeecycle.com/pickups/#{@pickup.id}?key=#{@pickup.key}"
+    %p= link_to "Make changes to your pickup", "https://bainbridgeecycle.com/pickups/#{@pickup.id}?key=#{@pickup.key}&utm_source=email&utm_medium=internal"
+
+    %h2(style="text-align:center;margin-bottom:0") Donations
+    %p
+      In support of this service and Boy Scout Troop 1496, would you like to donate?
+      = link_to "Make a donation", "https://bainbridgeecycle.com/donations/new?pickup_id=#{@pickup.id}&key=#{@pickup.key}&utm_source=email&utm_medium=internal"
 
     %br
     %br

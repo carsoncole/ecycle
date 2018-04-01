@@ -10,14 +10,14 @@
     .field
       = f.label :pickup_instructions
       = f.text_area :pickup_instructions, class: 'form-control'
-  .form-group
-    .field
-      = f.label :pickup_signups_enabled
-      = f.check_box :pickup_signups_enabled, class: 'form-control'
-  .form-group
-    .field
-      = f.label :donations_enabled
-      = f.check_box :donations_enabled, class: 'form-control'
+  .form-check.form-check-inline
+    .form-group
+      = f.check_box :pickup_signups_enabled, class: 'form-check-input'
+      = f.label :pickup_signups_enabled, class: 'form-check-label'
+  .form-check.form-check-inline
+    .form-group
+      = f.check_box :donations_enabled, class: 'form-check-input'
+      = f.label :donations_enabled, class: 'form-check-label'
   .form-group
     .field
       = f.label :general_contact_name
@@ -34,6 +34,11 @@
     .field
       = f.label :pickup_contact_email
       = f.text_field :pickup_contact_email, class: 'form-control'
+  .form-check.form-check-inline
+    .form-group
+      = f.check_box :allow_user_signups, class: 'form-check-input'
+      = f.label :allow_user_signups, class: 'form-check-label'
+
   .actions
     = f.submit 'Save', class: 'btn btn-primary'
 

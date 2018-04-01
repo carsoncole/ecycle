@@ -14,9 +14,8 @@
           %li.nav-item= link_to "Schedule a Pickup", root_path, class: 'nav-link'
           %li.nav-item= link_to "Make a Donation", new_donation_path, class: 'nav-link'
       %ul.navbar-nav
-        - if cookies[:pickup_id] && Pickup.exists?(cookies[:pickup_id])
-          
-          %li.nav-item= link_to 'Your Pickup', pickup_path(Pickup.find(cookies[:pickup_id]), key: cookies[:key]), class: 'nav-link'
+        - if valid_pickup_exists?
+          %li.nav-item= link_to 'Your Pickup', pickup_path(Pickup.find(cookies[:pickup_id])), class: 'nav-link'
 
         - if signed_in? 
           %li.nav-item

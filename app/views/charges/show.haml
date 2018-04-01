@@ -27,6 +27,9 @@
       %tr
         %th Paid
         %td.text-right= @charge.charge_paid
+      %tr
+        %th Created
+        %td.text-right= nice_date_time(@charge.create_at)
 
       %tr
         %th Pickup

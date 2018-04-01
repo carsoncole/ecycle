@@ -7,9 +7,9 @@
       will be holding its 12th annual Electronics Waste (E-Waste) Recycling Fundraiser on Saturday, June 2.
 
     .row
-      .col-md-2
+      .col-md-3.text-center
         = image_tag 'bsa-trademark.jpg'
-      .col-md-10
+      .col-md-9
         %p Funds generated from this event are used to defray the cost of Troop 1496 service projects around the island and leadership training and outdoor wilderness experiences for 60+ boys aged 10-17.  Recent service and Eagle projects by Troop 1496 scouts include invasive weed removal; new flagpoles at Rotary Field; planter boxes for residents of Island Rehab; Frisbee golf course at Hyla MS; remodel of BPA rehearsal space; firewood shed at Fay Bainbridge; meditation shelter at First Baptist Church; and West Sound Wildlife Shelter animal enclosure. 
 
     %br
@@ -18,7 +18,9 @@
       .col-md-6
         %h3 Drop Off
         %p 
-          On June 2 drop off your unused electronics at the First Baptist Church, located at the juncture of Hwy. 305 & Madison, between 8am and 3pm.
+          On June 2 drop off your unused electronics at the
+          = link_to "First Baptist Church","http://bainbridgefirstbaptist.org", target: '_blank'
+          located at the juncture of Hwy. 305 & Madison, between 8am and 3pm.
         %p.text-center
           = image_tag 'bainbridge-first-baptist.png'
       .col-md-6
@@ -29,6 +31,17 @@
 
         %p.text-center
           = image_tag 'truck.jpg'
+
+    .row
+      .col-md-2
+      .col-md-8
+        %h4
+          PC Recycle and Repair
+        %p
+          Our partner in this fundraiser is
+          = link_to "PC Recycle and Repair,", "http://www.pcrecycle.net", target: '_blank'
+          Puget Sound's Premier lectronics/IT asset recycler and IT service provider.
+        .text-center= image_tag "PCRecycle21.jpg", width: 300
 
     .row
       .col-md-12
@@ -50,7 +63,7 @@
 
     %p Please do not bring loose batteries or items containing gas.
 
-    - if Setting.first.general_contact_name.present? && Setting.first.general_contact_email.present?
+    - if Setting.first_or_create.general_contact_name.present? && Setting.first_or_create.general_contact_email.present?
       %h3 Questions?
       %p
         Please contact
