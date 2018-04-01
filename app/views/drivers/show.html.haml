@@ -1,6 +1,5 @@
 .container
   %h1 Driver
-  %br
   .row
     .col-md-6
       %table.table.table-sm
@@ -17,6 +16,9 @@
         %tr
           %th Scouts:
           %td.text-right= @driver.scout_names
+
+  .d-print-none
+    = link_to 'Edit', edit_driver_path(@driver)
 
   .row
     .col-md-12
@@ -42,7 +44,3 @@
                 %td.message= pickup.message
 
 
-  .d-print-none
-    = link_to 'Edit', edit_driver_path(@driver)
-    \|
-    = link_to 'Back', drivers_path
