@@ -5,6 +5,15 @@ GIT
   specs:
     geocoder (1.4.7)
 
+GIT
+  remote: https://github.com/smartinez87/exception_notification.git
+  revision: dec18c97698035dd720e5f1078e265ef55db7ee2
+  branch: master
+  specs:
+    exception_notification (4.2.2)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -239,6 +248,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   clearance
   coffee-rails (~> 4.2)
+  exception_notification!
   font-awesome-sass
   geocoder!
   haml-rails
