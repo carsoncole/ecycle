@@ -109,3 +109,10 @@ nav.pagination {
     padding-right: 0.5em;
   }
 }
+
+//small screen sizes
+@media (max-width: 700px) {
+  #home .title {
+    border: none;
+  }
+}

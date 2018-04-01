@@ -1,10 +1,10 @@
+# TODO Investigate why Setting not instantiated in production
+# TODO Refactor README.md
 class ApplicationController < ActionController::Base
   include Clearance::Controller
   protect_from_forgery with: :exception
   helper_method :valid_pickup_exists?
   helper_method :current_pickup
-
-  
 
   def current_pickup
     if cookies[:pickup_id] 

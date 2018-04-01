@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/alexreisner/geocoder.git
+  revision: c74356b448be992dc4aaa2ba0e932260cdbbf5e0
+  branch: master
+  specs:
+    geocoder (1.4.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -83,7 +90,6 @@ GEM
     ffi (1.9.23)
     font-awesome-sass (5.0.9)
       sass (>= 3.2)
-    geocoder (1.4.7)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -234,7 +240,7 @@ DEPENDENCIES
   clearance
   coffee-rails (~> 4.2)
   font-awesome-sass
-  geocoder
+  geocoder!
   haml-rails
   jquery-rails
   kaminari

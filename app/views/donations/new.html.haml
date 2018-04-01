@@ -22,11 +22,14 @@
               \|
               = link_to "$10", donations_path(amount: 10), method: :post
 
+        .row
+          .col-md-2
+          .col-md-8
             = form_tag donations_path do
-              .form-group.row
-                = label_tag 'amount $', nil, class: 'col-sm-6 col-form-label text-right'
-                .col-sm-3
-                  = text_field_tag :amount, nil,class: 'form-control'
+              .form-group
+                / .text-center
+                /   = label_tag 'amount $', nil
+                = text_field_tag :amount, nil,class: 'form-control', placeholder: 'Enter custom amount ...'
 
               .actions.text-center
                 = submit_tag 'Start a donation', class: 'btn btn-primary'
