@@ -1,32 +1,22 @@
 #home.container
   %br
   .row
-    .col-md-4
-    .col-md-4
+    .col-sm
       #date-block
         Saturday
         %br
         June 2, 2018
 
-
-  .row
-    .col-md-4
-    .col-md-4.title
+    .col-sm.title
       %h1.text-center
         Schedule a Pickup
 
       = render 'form'
 
-  %br
-
-  .row
-    .col-md-3
-    .col-md-6
+    .col-sm
       .text-center
         = image_tag "ecycle3.jpg", class: 'img-fluid rounded'
 
-  %br
   .row
     .col-md-12
       .text-center= render 'facebook_button'
-      %br

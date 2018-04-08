@@ -13,8 +13,8 @@ $boy-scout-green: #01713F;
   font-weight: 900;
   color: #ffffff;
   font-size: 2.5em;
-  line-height: 0.9em;
-  padding: 1em;
+  line-height: 1em;
+  padding: 0.9em;
 }
 
 #home {
@@ -33,9 +33,9 @@ $boy-scout-green: #01713F;
   }
 
   .title {
-    padding: 1.2em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 0.1em;
     border: 3px solid $black;
   }
 }
@@ -46,6 +46,7 @@ h1, h2, h3, h4 {
   padding-bottom: 0.3em;
 }
 
+
 .alert {
   h1, h2, h3, h4 {
     padding-top: 0;
@@ -54,8 +55,13 @@ h1, h2, h3, h4 {
 
 .title h1 {
   padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
+.col-sm {
+  margin-top: 1em;
+}
 
 .navbar {
   border: 3px solid $black;
@@ -66,7 +72,7 @@ h1, h2, h3, h4 {
   }
   .nav-item {
     font-size: 1.3em;
-    font-weight: 200;
+    font-weight: 300;
   }
   a {
     color: #fff !important;
@@ -127,4 +133,7 @@ nav.pagination {
   #home .title {
     border: none;
   }
+}
+.facebook {
+  margin: 0.5em auto  
 }
