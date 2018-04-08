@@ -1,6 +1,8 @@
 %nav
   .navbar.navbar-expand-lg.fixed-top.navbar-dark
-    = link_to "Bainbridge eCycle", root_path, class: 'navbar-brand'
+    / = link_to "Bainbridge Island Troop 1496 Electronic Recycling Day", root_path, class: 'navbar-brand', alt: 'Bainbridge Island Troop 1496 Electronic Recycling Day Logo'
+    = link_to root_path do
+      = image_tag "Test2.png",class: 'navbar-brand img-fluid'
     %button.navbar-toggler.custom-toggler{type: 'button', 'data-toggle': 'collapse', 'data-target': "#navbarSupportedContent" }
       %span.navbar-toggler-icon
     .collapse.navbar-collapse#navbarSupportedContent

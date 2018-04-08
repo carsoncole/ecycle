@@ -5,6 +5,18 @@ $boy-scout-red: #CE1126;
 $boy-scout-blue: #003F87;
 $boy-scout-green: #01713F;
 
+
+#date-block {
+  background-color: $boy-scout-red;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 2.5em;
+  line-height: 0.9em;
+  padding: 1em;
+}
+
 #home {
   h1 {
     font-size: 3.1em;
