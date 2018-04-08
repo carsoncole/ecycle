@@ -35,11 +35,14 @@
             %td= pickup.latitude
             %td= pickup.longitude
             %td
-              = link_to 'Show', pickup
+              = link_to pickup do
+                .fa.fa-eye
               = '|'
-              = link_to 'Edit', edit_pickup_path(pickup)
-              / = '|'
-              / = link_to 'Destroy', pickup, method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to edit_pickup_path(pickup) do
+                .fa.fa-edit
+              = '|'
+              = link_to pickup, method: :delete, data: { confirm: 'Are you sure?' } do
+                .fa.fa-trash
 
 
   %br

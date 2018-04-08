@@ -48,7 +48,11 @@ class PickupsController < ApplicationController
     @pickup.charges.update_all(pickup_id: nil)
     @pickup.destroy
     delete_pickup_cookies!
-    redirect_to root_path, notice: 'Your pickup was cancelled.'
+    if signed_in?
+      redirect_to pickups_path, notice: 'Pickup was destroyed.'
+    else
+      redirect_to root_path, notice: 'Your pickup was cancelled.'
+    end
   end
 
   def deliver
@@ -70,6 +74,11 @@ class PickupsController < ApplicationController
       marker.lng pickup.longitude.to_f
       marker.infowindow pickup.name_address
   
+    end
+    
+    @pickups = []
+    Pickup.all.each do |pickup|
+      @pickups << [ 'Hello', pickup.latitude, pickup.longitude, 1]
     end
   end
 

@@ -25,11 +25,14 @@
             %td= driver.pickups.map {|p| p.id }.join(',')
             %td= driver.scout_names
             %td
-              = link_to 'Show', driver
-              \|
-              = link_to 'Edit', edit_driver_path(driver)
-              \|
-              = link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to driver do
+                .fa.fa-eye
+              = '|'
+              = link_to edit_driver_path(driver) do
+                .fa.fa-edit
+              = '|'
+              = link_to driver, method: :delete, data: { confirm: 'Are you sure?' } do
+                .fa.fa-trash
             %td= button_to "Email Pickups", deliver_path(driver.id), data: { confirm: 'Are you sure? This will send an email to the Driver with all of their pickups.' }, class: 'btn btn-sm'
   %br
 
