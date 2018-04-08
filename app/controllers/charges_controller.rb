@@ -1,5 +1,5 @@
 class ChargesController < ApplicationController  
-  before_action :require_login, only: [:index]
+  before_action :require_login, only: [:index, :destroy]
 
   def index
     @charges = Charge.order(created_at: :desc).page(params[:page]).per(5)
@@ -63,7 +63,9 @@ class ChargesController < ApplicationController
   end
 
   def destroy
-
+    @charge = Charge.find(params[:id])
+    @charge.destroy
+    redirect_to charges_path, notice: 'Donation was destroyed.'
   end
 
 end

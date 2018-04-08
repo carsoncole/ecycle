@@ -36,13 +36,13 @@
                     = link_to charge.pickup_id, pickup_path(charge.pickup_id)
                 %td= charge.created_at.strftime("%b %d, '%y %I:%M %p")
                 %td
-                  = link_to charge do
-                    .fa.fa-eye
-                  = '|'
-                  = link_to edit_charge_path(charge) do
-                    .fa.fa-edit
-                  = '|'
-                  = link_to charge, method: :delete, data: { confirm: 'Are you sure?' } do
+                  / = link_to charge do
+                  /   .fa.fa-eye
+                  / = '|'
+                  / = link_to edit_charge_path(charge) do
+                  /   .fa.fa-edit
+                  / = '|'
+                  = link_to charge, method: :delete, data: { confirm: 'Are you sure? This will destroy the record of the donation and is not reversible.' } do
                     .fa.fa-trash
 
       = paginate @charges
