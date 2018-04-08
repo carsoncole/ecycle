@@ -62,4 +62,8 @@ class ChargesController < ApplicationController
   
   end
 
+  def destroy
+
+  end
+
 end
