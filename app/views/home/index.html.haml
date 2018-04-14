@@ -1,15 +1,24 @@
 #home.container
-  %br
   .row
     .col-sm
-      #date-block
-        Saturday
+      .about
+        %h1 Electronic Recycling Day
+        %p Support Bainbridge Scouting and Troop 1496 by recycling your old electronics! We want your unused iPhones, iPads, printers and small appliances which we be recycled. 
+
+      .date-block
+        %h3.mb-0
+          Saturday
+          %br
+          June 2, 2018
+      
+        Dropoffs: 8am-3pm First Baptist Church
         %br
-        June 2, 2018
+        Pickups: 8am-2pm
 
     .col-sm.title
-      %h1.text-center
+      %h2.text-center.mb-0
         Schedule a Pickup
+      %h5.text-center.mt-0 Between 8am-2pm
 
       = render 'form'
 
