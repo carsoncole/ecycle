@@ -3,7 +3,12 @@
     .col-sm
       .about
         %h1 Electronic Recycling Day
-        %p Support Bainbridge Scouting and Troop 1496 by recycling your old electronics! We want your unused iPhones, iPads, printers and small appliances which we be recycled. 
+        %p 
+          Support Bainbridge Scouting and Troop 1496 by recycling your old electronics! We want your unused iPhones, iPads, printers and small appliances which we be recycled. 
+        = link_to about_path do
+          Learn More
+          = icon('fas', 'arrow-right')
+
 
       .date-block
         %h3.mb-0
