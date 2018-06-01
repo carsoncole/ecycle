@@ -1,11 +1,15 @@
 class ChargesController < ApplicationController  
-  before_action :require_login, only: [:index, :destroy]
+  before_action :require_login, only: [:index, :destroy, :edit, :update]
 
   def index
     @charges = Charge.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show
+    @charge = Charge.find(params[:id])
+  end
+
+  def edit
     @charge = Charge.find(params[:id])
   end
 
@@ -21,6 +25,15 @@ class ChargesController < ApplicationController
       @email = @pickup.email
     else
       @email = ''
+    end
+  end
+
+  def update
+    @charge = Charge.find(params[:id])
+    if @charge.update(charge_params)
+      redirect_to charges_path, notice: 'Charge was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -66,6 +79,10 @@ class ChargesController < ApplicationController
     @charge = Charge.find(params[:id])
     @charge.destroy
     redirect_to charges_path, notice: 'Donation was destroyed.'
+  end
+
+  def charge_params
+    params.require(:charge).permit!
   end
 
 end

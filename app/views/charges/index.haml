@@ -39,9 +39,9 @@
                   / = link_to charge do
                   /   .fa.fa-eye
                   / = '|'
-                  / = link_to edit_charge_path(charge) do
-                  /   .fa.fa-edit
-                  / = '|'
+                  = link_to edit_charge_path(charge) do
+                    .fa.fa-edit
+                  = '|'
                   = link_to charge, method: :delete, data: { confirm: 'Are you sure? This will destroy the record of the donation and is not reversible.' } do
                     .fa.fa-trash
 

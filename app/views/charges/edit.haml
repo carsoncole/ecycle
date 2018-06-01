@@ -1,0 +1,29 @@
+.container
+  %h1 Charge
+
+  = form_for @charge do |f|
+    - if @charge.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@charge.errors.count, "error")} prohibited this pickup from being saved:"
+        %ul
+          - @charge.errors.full_messages.each do |message|
+            %li= message
+    .form-group
+      .field
+        %label
+          = f.label :customer_email
+        = f.text_field :customer_email, class: 'form-control'
+    .form-group
+      .field
+        = f.label :charge_amount
+        = f.text_field :charge_amount, class: 'form-control'
+    .form-group
+      .field
+        = f.label 'Pickup ID'
+        = f.text_field :pickup_id, class: 'form-control'
+    .form-group
+      .field
+        = f.label "charge id"
+        = f.text_field :charge_id, class: 'form-control'
+    .actions
+      = f.submit 'Save', class: 'btn btn-lg btn-primary'
