@@ -30,6 +30,7 @@
           %th(align='left') Address
           %th(align='left') Email
           %th(align='left') Size
+          %th(align='left') Donation
           %th(align='left') Message    
       - @pickups.each do |pickup|
         %tbody
@@ -38,4 +39,6 @@
             %td= pickup.street_address
             %td= pickup.email
             %td= pickup.size
+            %td
+              = pickup.charges.map{|c| "$#{c.charge_amount}" }.join(", ")
             %td.message= pickup.message
