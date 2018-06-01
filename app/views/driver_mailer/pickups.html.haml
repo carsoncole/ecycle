@@ -40,5 +40,5 @@
             %td= pickup.email
             %td= pickup.size
             %td
-              = pickup.charges.map{|c| "$#{c.charge_amount}" }.join(", ")
+              = pickup.charges.map{|c| "$#{ c.charge_amount/100.00 }" }.join(", ")
             %td.message= pickup.message
