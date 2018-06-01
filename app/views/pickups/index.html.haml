@@ -5,6 +5,7 @@
     %table.table.table-sm
       %thead
         %tr
+          %th ID
           %th Name
           %th Email
           %th Street address
@@ -18,6 +19,7 @@
       %tbody
         - @pickups.each do |pickup|
           %tr
+            %td= pickup.id
             %td= pickup.name
             %td= pickup.email
             %td= pickup.street_address
