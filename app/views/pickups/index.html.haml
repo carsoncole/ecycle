@@ -38,7 +38,9 @@
                 = link_to number_to_currency(charge.charge_amount / 100.00), charge_path(charge)
                 %br
             %td= pickup.size
-            %td= (link_to pickup.message.truncate(50), pickup_path(pickup)) if pickup.message
+            %td
+              - if pickup.message.present?
+                = link_to pickup.message.truncate(50), pickup_path(pickup)
             %td= pickup.latitude
             %td= pickup.longitude
             %td
