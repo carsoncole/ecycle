@@ -39,7 +39,9 @@
                 %td= pickup.name
                 %td
                   = link_to pickup.street_address, "maps:maps.google.com/q=" + pickup.address, target: '_blank'
-                %td= pickup.distance_from(@driver.address).round(2)
+                %td
+                  / #FIXME need to avoid round on nil
+                  /= pickup.distance_from(@driver.address).round(2)
                 %td= pickup.email
                 %td.message= pickup.message
 
