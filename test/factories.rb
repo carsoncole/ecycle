@@ -3,6 +3,10 @@ FactoryBot.define do
     email { "john_doe@example.com" }
   end
 
+  factory :setting do
+    new_user_key { "abcd"}
+  end
+
   # factory :issuer do
   #   name { "ACME Rubber Company"}
   # end
