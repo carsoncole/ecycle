@@ -1,7 +1,7 @@
 FactoryBot.define do
-  # factory :user do
-  #   email { "john_doe@example.com" }
-  # end
+  factory :user do
+    email { "john_doe@example.com" }
+  end
 
   # factory :issuer do
   #   name { "ACME Rubber Company"}
