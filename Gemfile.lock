@@ -67,8 +67,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     arel (9.0.0)
     autoprefixer-rails (9.5.1)
       execjs
@@ -91,9 +89,6 @@ GEM
       xpath (>= 2.0, < 4.0)
     childprocess (1.0.1)
       rake (< 13.0)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     clearance (1.17.0)
       actionmailer (>= 3.1)
       activemodel (>= 3.1)
@@ -122,6 +117,8 @@ GEM
     factory_bot_rails (5.0.2)
       factory_bot (~> 5.0.2)
       railties (>= 4.2.0)
+    faker (1.9.3)
+      i18n (>= 0.7)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
@@ -145,7 +142,6 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    io-like (0.3.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -283,6 +279,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webdrivers (3.8.0)
+      nokogiri (~> 1.6)
+      rubyzip (~> 1.0)
+      selenium-webdriver (~> 3.0)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -297,11 +297,11 @@ DEPENDENCIES
   bootstrap (~> 4.0.0)
   byebug
   capybara (~> 2.15)
-  chromedriver-helper
   clearance
   coffee-rails (~> 4.2)
   exception_notification!
   factory_bot_rails
+  faker
   font-awesome-sass
   geocoder!
   gmaps4rails!
@@ -323,6 +323,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webdrivers (~> 3.0)
 
 RUBY VERSION
    ruby 2.4.3p205

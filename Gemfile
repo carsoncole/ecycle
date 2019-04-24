@@ -39,6 +39,7 @@ gem 'jquery-rails'
 gem 'clearance'
 gem 'stripe'
 gem 'exception_notification', github: "smartinez87/exception_notification", branch: 'master'
+gem 'faker'
 
 # Mapping
 gem 'geocoder', github: "alexreisner/geocoder", branch: 'master'
@@ -54,7 +55,7 @@ end
 group :test do
   gem 'capybara', '~> 2.15'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 3.0'
   gem 'simplecov'
 end
 
