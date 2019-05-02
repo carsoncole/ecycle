@@ -8,15 +8,7 @@ $boy-scout-green: #01713F;
 
 body {
   font-family: 'Helvetica Neue', Verdana, Geneva, arial, sans-serif;
-}
-
-.date-block {
-  background-color: $boy-scout-green;
-  text-align: center;
-  color: #ffffff;
-  line-height: 1em;
-  padding: 0.7em;
-  border: 3px solid $boy-scout-green;
+  line-height: 1.333em;
 }
 
 #home {
@@ -24,10 +16,9 @@ body {
     background-color: $boy-scout-green;
     text-align: center;
     color: #ffffff;
-    line-height: 1.2em;
     padding: 0.8em;
     padding-top: 0.3em;
-    padding-bottom: 0.7em;
+    padding-bottom: 1em;
     border: 3px solid $boy-scout-green;  
     margin-bottom: 1em;    
     
@@ -43,7 +34,7 @@ body {
     font-size: 2.5em;
     line-height: 1em;
   }
-  h3 {
+  h3,h4 {
     padding-top: 0em;
     line-height: 1em;
     font-size: 2.1em;
