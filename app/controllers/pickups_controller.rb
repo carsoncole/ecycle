@@ -11,7 +11,7 @@ class PickupsController < ApplicationController
 
   # GET /pickups/1s
   def show
-    unless @pickup && @pickup.key == params[:key]
+    unless @pickup && ( @pickup.key == params[:key] || signed_in? )
       redirect_to root_path, notice: '<h4>Ooops! That pickup does not exist</h3>It has either been cancelled or never existed.' 
     end
   end
@@ -31,7 +31,7 @@ class PickupsController < ApplicationController
 
     if @pickup.save
       set_pickup_cookies!
-      PickupMailer.pickup_scheduled(@pickup.id).deliver_now
+      PickupMailer.pickup_scheduled(@pickup.id).deliver_later
       redirect_to new_donation_path(pickup_sign_up: true), notice: "<p>We've scheduled a pickup of your e-waste! Boy Scouts from our Troop will be picking up between 8am and 2pm on Saturday, June 2. Please have your e-waste outside on your curb, house porch, or in front of your garage or front door. Thanks again!</p><hr><h4>Would you like to make a donation?</h4><p>Donations go a long way towards supporting our Troop, our Boy Scouts, and the many community service projects they engage in. See below recommended amounts based on the quantity of e-waste you want recycled.</p>"
     else
       render :new

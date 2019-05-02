@@ -40,6 +40,7 @@ gem 'clearance'
 gem 'stripe'
 gem 'exception_notification', github: "smartinez87/exception_notification", branch: 'master'
 gem 'faker'
+gem 'sucker_punch'
 
 # Mapping
 gem 'geocoder', github: "alexreisner/geocoder", branch: 'master'

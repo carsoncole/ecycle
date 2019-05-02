@@ -12,6 +12,7 @@ module Bainbridgeecycle
     config.load_defaults 5.1
     config.time_zone = 'Pacific Time (US & Canada)'
     config.action_mailer.default_url_options = { host: 'gmail.com' }
+    config.active_job.queue_adapter = :sucker_punch
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
