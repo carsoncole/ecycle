@@ -10,7 +10,11 @@ class CreateSettings < ActiveRecord::Migration[5.1]
       t.string :pickup_contact_name
       t.string :pickup_contact_email
       t.string :new_user_key
-
+      t.date :event_date
+      t.datetime :pickups_start_at
+      t.datetime :pickups_end_at
+      t.datetime :dropoffs_start_at
+      t.datetime :dropoffs_end_at
       t.timestamps
     end
   end

@@ -1,0 +1,10 @@
+Pickup Scheduled
+
+= Setting.first_or_create.pickup_instructions
+
+Thank you for your support of Bainbridge Island Troop 1496.
+
+View your pickup details: https://ecycle.today/pickups/#{@pickup.id}?key=#{@pickup.key}
+
+- if Setting.first.pickup_contact_name.present? and Setting.first.pickup_contact_email.present?
+  If you have any questions regarding your pickup, please contact #{ Setting.first.pickup_contact_name } at #{ mail_to Setting.first.pickup_contact_email }.

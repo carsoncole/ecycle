@@ -14,9 +14,10 @@
     %tr
       %th Size:
       %td.text-right= @pickup.size
-    %tr
-      %th key:
-      %td.text-right= @pickup.key
+    - if signed_in?
+      %tr
+        %th key:
+        %td.text-right= @pickup.key
     - unless @pickup.message.blank?
       %tr
         %th Message:
@@ -58,5 +59,6 @@
           - else
             None assigned
 
-  = link_to 'Edit', edit_pickup_path(@pickup), class: 'btn btn-secondary'
+  - if signed_in?
+    = link_to 'Edit', edit_pickup_path(@pickup), class: 'btn btn-secondary'
   = link_to 'Cancel Pickup', pickup_path(@pickup), method: :delete, data: { confirm: "Are you sure? Clicking 'OK' will cancel this pickup." }, class: 'btn btn-danger'

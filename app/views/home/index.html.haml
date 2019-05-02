@@ -15,15 +15,28 @@
           Saturday
           %br
           June 1, 2019
-      
-        Dropoffs: 8am-3pm First Baptist Church
-        %br
-        Pickups: 9am-2pm
+        - if @dropoffs_start_at.present? && @dropoffs_end_at.present?
+          Dropoffs:
+          = @dropoffs_start_at.strftime('%l:%M%P')
+          \-
+          = @dropoffs_end_at.strftime('%l:%M%P')
+          First Baptist Church
+          %br
+        - if @pickups_start_at.present? && @pickups_end_at.present?
+          Pickups:
+          = @pickups_start_at.strftime('%l:%M%P')
+          \-
+          = @pickups_end_at.strftime('%l:%M%P')
 
     .col-sm.title
       %h2.text-center.mb-0
         Schedule a Pickup
-      %h5.text-center.mt-0 Between 9am-2pm
+      %h5.text-center.mt-0
+        - if @pickups_start_at.present? && @pickups_end_at.present?
+          Between
+          = @pickups_start_at.strftime('%l:%M%P')
+          and
+          = @pickups_end_at.strftime('%l:%M%P')
 
       = render 'form'
 

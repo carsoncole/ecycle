@@ -7,13 +7,26 @@
           %li= message
 
   .form-group
+    = f.label :dropoffs_start_at
+    = f.datetime_select :dropoffs_start_at, {}, class: 'form-control'
+  .form-group
+    = f.label :dropoffs_end_at
+    = f.datetime_select :dropoffs_end_at, {}, class: 'form-control'
+  .form-group
     .field
       = f.label :pickup_instructions
+      %p.text-muted (* Used in pickup emails)
       = f.text_area :pickup_instructions, class: 'form-control'
   .form-check.form-check-inline
     .form-group
       = f.check_box :pickup_signups_enabled, class: 'form-check-input'
       = f.label :pickup_signups_enabled, class: 'form-check-label'
+  .form-group
+    = f.label :pickups_start_at
+    = f.datetime_select :pickups_start_at, {}, class: 'form-control'
+  .form-group
+    = f.label :pickups_end_at
+    = f.datetime_select :pickups_end_at, {}, class: 'form-control'
   .form-check.form-check-inline
     .form-group
       = f.check_box :donations_enabled, class: 'form-check-input'

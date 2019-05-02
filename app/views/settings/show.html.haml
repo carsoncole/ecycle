@@ -4,9 +4,16 @@
     .col-md-10
       %h1 Settings
       %br
+      %p.text-muted * It is important to fill this out completely as the information is used on the website and in email notifications.
       .table-responsive
         %table.table.settings
           %tbody
+            %tr
+              %th Dropoffs start at:
+              %td.text-right= @setting.dropoffs_start_at
+            %tr
+              %th Dropoffs end at:
+              %td.text-right= @setting.dropoffs_end_at
             %tr
               %th Pickup instructions:
               %td.text-right= @setting.pickup_instructions
@@ -17,6 +24,12 @@
                   .font-weight-bold.text-success= "&#10003".html_safe
                 - else
                   .font-weight-bold.text-danger= "&#x2717".html_safe
+            %tr
+              %th Pickups start at:
+              %td.text-right= @setting.pickups_start_at
+            %tr
+              %th Pickups end at:
+              %td.text-right= @setting.pickups_end_at
             %tr
               %th Donations enabled:
               %td.text-right

@@ -11,6 +11,9 @@ class PickupsController < ApplicationController
 
   # GET /pickups/1s
   def show
+    unless @pickup && @pickup.key == params[:key]
+      redirect_to root_path, notice: '<h4>Ooops! That pickup does not exist</h3>It has either been cancelled or never existed.' 
+    end
   end
 
   # GET /pickups/new
@@ -85,9 +88,6 @@ class PickupsController < ApplicationController
   private
     def set_pickup
       @pickup = Pickup.find(params[:id]) rescue nil
-      unless @pickup
-        redirect_to root_path, notice: '<h4>Ooops! That pickup does not exist</h3>It has either been cancelled or never existed.' 
-      end
     end
 
     def pickup_params
