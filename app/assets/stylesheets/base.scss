@@ -1,7 +1,7 @@
 $primary: #457D2D;
 $primary-complementary: #7DCA5C;
 $black: #222;
-$boy-scout-red: #CE1126;
+$boy-scout-green: #CE1126;
 $boy-scout-blue: #003F87;
 $boy-scout-green: #01713F;
 
@@ -11,24 +11,24 @@ body {
 }
 
 .date-block {
-  background-color: $boy-scout-red;
+  background-color: $boy-scout-green;
   text-align: center;
   color: #ffffff;
   line-height: 1em;
   padding: 0.7em;
-  border: 3px solid $boy-scout-red;
+  border: 3px solid $boy-scout-green;
 }
 
 #home {
   .about {
-    background-color: $boy-scout-red;
+    background-color: $boy-scout-green;
     text-align: center;
     color: #ffffff;
     line-height: 1.2em;
     padding: 0.8em;
     padding-top: 0.3em;
     padding-bottom: 0.7em;
-    border: 3px solid $boy-scout-red;  
+    border: 3px solid $boy-scout-green;  
     margin-bottom: 1em;    
     
     h1 {
@@ -55,12 +55,11 @@ body {
     padding-top: 0;
     padding-bottom: 1em;
     margin-bottom: 0.1em;
-    border: 3px solid $black;
   }
 }
 
 h1, h2, h3, h4 {
-  color: $boy-scout-red;
+  color: $boy-scout-green;
   padding-top: 1em;
   padding-bottom: 0.3em;
 }
@@ -73,8 +72,8 @@ h1, h2, h3, h4 {
 }
 
 .title h1 {
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
   margin-bottom: 0;
 }
 
@@ -83,8 +82,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar {
-  border: 3px solid $black;
-  background-color: $boy-scout-red;
+  background-color: $boy-scout-green;
   .navbar-brand {
   }
   .nav-item {
@@ -93,7 +91,7 @@ h1, h2, h3, h4 {
   a {
     color: #fff !important;
     &:hover {
-      color: lighten($boy-scout-red, 30%);
+      color: lighten($boy-scout-green, 30%);
     }
   }
 }

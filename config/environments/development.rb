@@ -29,7 +29,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = { from: 'Troop 1496 <bainbridgeislandtroop1496@gmail.com>'}
-  config.action_mailer.asset_host = "https://bainbridgeecycle.com"
+  config.action_mailer.asset_host = "https://ecycle.today"
 
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
@@ -37,8 +37,8 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_user_name,
-    password: Rails.application.secrets.email_password
+    user_name: Rails.application.credentials.email_user_name,
+    password: Rails.application.credentials.email_password
    }
 
   config.action_mailer.perform_caching = false

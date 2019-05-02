@@ -3,7 +3,7 @@
   %head
     %meta(content='text/html; charset=UTF-8' http-equiv='Content-Type')
   %body(style='text-align:center')
-    %div(style='text-align:center')= image_tag "https://bainbridgeecycle.com/electronic-recycling-day-logo-red-bsa.png"
+    %div(style='text-align:center')= image_tag "https://ecycle.today/electronic-recycling-day-logo-red-bsa.png"
     %h1(style="text-align:center;font-size:1.2") Pickup Scheduled
     %p(style="text-align:center")
       = @pickup.name + ', ' + Setting.first_or_create.pickup_instructions
@@ -15,12 +15,12 @@
     Pickup size:
     = @pickup.size
     %br
-    %p= link_to "Make changes to your pickup", "https://bainbridgeecycle.com/pickups/#{@pickup.id}?key=#{@pickup.key}&utm_source=email&utm_medium=internal"
+    %p= link_to "Make changes to your pickup", "https://ecycle.today/pickups/#{@pickup.id}?key=#{@pickup.key}&utm_source=email&utm_medium=internal"
 
     %h2(style="text-align:center;margin-bottom:0") Donations
     %p
       In support of this service and Boy Scout Troop 1496, would you like to donate?
-      = link_to "Make a donation", "https://bainbridgeecycle.com/donations/new?pickup_id=#{@pickup.id}&key=#{@pickup.key}&utm_source=email&utm_medium=internal"
+      = link_to "Make a donation", "https://ecycle.today/donations/new?pickup_id=#{@pickup.id}&key=#{@pickup.key}&utm_source=email&utm_medium=internal"
 
     %br
     %br
