@@ -139,5 +139,20 @@ nav.pagination {
   margin-top: 0.5em;  
 }
 footer {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $boy-scout-green;
+  height: 3em;
+  padding: 0.75em;
+  a {
+    color: #fff;
+    &:hover {
+      color: #010101;
+    }
+  }
+
   padding-top: 1em;
 }
