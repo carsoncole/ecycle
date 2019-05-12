@@ -3,4 +3,5 @@ Rails.configuration.stripe = {
   :secret_key      => Rails.application.credentials.send(Rails.env)[:stripe_secret_key]
 }
 
-# Stripe.api_key = Rails.configuration.stripe[:secret_key]
+#Stripe.api_key = Rails.configuration.stripe[:secret_key]
+Stripe.api_key = Rails.application.credentials.send(Rails.env)[:stripe_secret_key]
