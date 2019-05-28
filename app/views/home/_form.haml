@@ -23,6 +23,10 @@
       .field
         = f.label :Approximately_how_heavy_is_your_eWaste?
         = f.select :size, options_for_select(Pickup::SIZES), {}, class: 'form-control'
+    .form-group
+      .field
+        = f.label :Anything_else_you_want_to_tell_us?
+        = f.text_field :message, class: 'form-control'
     %br
     .actions.text-center
       = f.submit 'Schedule Pickup', class: 'btn btn-primary btn-lg btn-block'
