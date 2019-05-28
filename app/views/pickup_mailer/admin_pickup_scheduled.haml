@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta(content='text/html; charset=UTF-8' http-equiv='Content-Type')
+  %body(style='text-align:center')
+    %div(style='text-align:center')= image_tag "https://ecycle.today/electronic-recycling-day-logo-red-bsa.png"
+    %h1(style="text-align:center;font-size:30px") Pickup Scheduled
+
+    %h2(style="text-align:center;margin-bottom:0") Pickup Details
+    Address:
+    = @pickup.street_address + ', Bainbridge Island'
+    %br
+    Email:
+    = @pickup.email
+    %br
+    Pickup size:
+    = @pickup.size
+    %br
+    - if @pickup.message.present?
+      Message:
+      = @pickup.message
+      %br
+    %p= link_to "View this pickup", "https://ecycle.today/pickups/#{@pickup.id}?key=#{@pickup.key}&utm_source=email&utm_medium=internal"

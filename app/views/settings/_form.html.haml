@@ -51,6 +51,12 @@
     .form-group
       = f.check_box :allow_user_signups, class: 'form-check-input'
       = f.label :allow_user_signups, class: 'form-check-label'
+  .form-check.form-check-inline
+    .field
+      = f.check_box :send_admin_pickup_notifications, class: 'form-check-input'
+      = f.label :send_admin_pickup_notifications, class: 'form-check-label'
+
+
 
   .actions
     = f.submit 'Save', class: 'btn btn-primary'

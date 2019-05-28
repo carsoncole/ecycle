@@ -56,6 +56,13 @@
             %tr
               %th Pickup contact email:
               %td.text-right= @setting.pickup_contact_email
+            %tr
+              %th Send Admin pickup notifications:
+              %td.text-right
+                - if @setting.send_admin_pickup_notifications
+                  .font-weight-bold.text-success= "&#10003".html_safe
+                - else
+                  .font-weight-bold.text-danger= "&#x2717".html_safe
 
             %tr
               %th New user URL:
