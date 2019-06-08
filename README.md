@@ -11,3 +11,11 @@ This is a Ruby on Rails application for hosting a Scout E-Cycle event, with the 
 - Bundle install
 
 - rails server
+
+## Requirements
+
+Ecycle requires Ruby on Rails >= 5.2 and Ruby >= 2.1.
+
+### Credentials
+
+This using Encrypted Credentials which are stored in an encrypted file "credentials.yml.enc". Decrypting this file is done with a master.key file, which is not stored in the repository. The master.key file should be manually uploaded to wherever this application is hosted. To start fresh, delete the existing credentials file.
