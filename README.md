@@ -10,6 +10,8 @@ This is a Ruby on Rails application for hosting a Scout E-Cycle event, with the 
 
 - Bundle install
 
+Edit the /app/views/home/about.haml page with information about your event.
+
 - rails server
 
 ## Requirements
