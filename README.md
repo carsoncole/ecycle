@@ -6,7 +6,7 @@ This is a Ruby on Rails application for hosting a Scout E-Cycle event, with the 
 - Sign-ups for pickups
 - Allocation of specific drivers to handling pickups
 
-# Installation
+## Installation
 
 - Bundle install
 
