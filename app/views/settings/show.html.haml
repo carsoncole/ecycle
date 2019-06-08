@@ -9,6 +9,17 @@
         %table.table.settings
           %tbody
             %tr
+              %th Event date:
+              %td.text-right= @setting.event_date
+            %tr
+              %th
+                Brief marketing message:
+                .small (Shown on the home page)
+              %td.text-right= @setting.brief_marketing_message
+            %tr
+              %th Dropoffs location:
+              %td.text-right= @setting.dropoff_location
+            %tr
               %th Dropoffs start at:
               %td.text-right= @setting.dropoffs_start_at
             %tr

@@ -5,7 +5,17 @@
       %ul
         - @setting.errors.full_messages.each do |message|
           %li= message
-
+  .form-group
+    = f.label :event_date
+    = f.date_select :event_date, {}, class: 'form-control'
+  .form-group
+    .field
+      = f.label :dropoff_location
+      = f.text_field :dropoff_location, class: 'form-control'
+  .form-group
+    .field
+      = f.label :brief_marketing_message
+      = f.text_field :brief_marketing_message, class: 'form-control'
   .form-group
     = f.label :dropoffs_start_at
     = f.datetime_select :dropoffs_start_at, {}, class: 'form-control'
