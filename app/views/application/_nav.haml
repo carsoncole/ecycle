@@ -32,5 +32,5 @@
             = link_to sign_out_path, method: :delete, class: 'nav-link' do
               .fas.fa-sign-out-alt
 
-        / - else
-        /   %li.nav-item= link_to 'Sign in', sign_in_path, class: 'nav-link'
+        - else
+          %li.nav-item= link_to 'Sign in', sign_in_path, class: 'nav-link'
