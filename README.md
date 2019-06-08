@@ -1,11 +1,13 @@
-# Bainbridge E-Cycle
+# Scout E-Cycle
 
-This application runs the site bainbridgeecycle.com, and includes marketing for the event, customer e-waste signups, and Troop pickup management.
+This is a Ruby on Rails application for hosting a Scout E-Cycle event, with the following features:
 
-* Rails 5.1, Ruby 2.3
+- Acceptance of donations
+- Sign-ups for pickups
+- Allocation of specific drivers to handling pickups
 
-The database is Sqlite3, which simplifies installation and management by not requiring additional components since this is the default for Rails.
+# Installation
 
-* Deployment instructions
+- Bundle install
 
-... to be done.
+- rails server
