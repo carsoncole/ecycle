@@ -12,3 +12,7 @@ default: &default
 development:
   <<: *default
   database: ecycle-development
+
+test:
+  <<: *default
+  database: ecycle-test
