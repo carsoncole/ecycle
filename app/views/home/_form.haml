@@ -1,4 +1,4 @@
-- if Setting.first_or_create.pickup_signups_enabled?
+- if settings.pickup_signups_enabled? && settings.pickups_end_at > Time.now
   = form_for @pickup do |f|
     - if @pickup.errors.any?
       #error_explanation
@@ -32,7 +32,4 @@
       = f.submit 'Schedule Pickup', class: 'btn btn-primary btn-lg btn-block'
 
 - else
-  .alert.alert-danger.text-center
-    Sign-ups for pickups are currently closed.
-    %br
-    Please check back.
+  = render 'pickups_status'

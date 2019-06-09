@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :valid_pickup_exists?
   helper_method :current_pickup
+  helper_method :settings
 
   def current_pickup
     if cookies[:pickup_id] 
@@ -53,5 +54,9 @@ class ApplicationController < ActionController::Base
       delete_pickup_cookies!
       redirect_to root_path
     end
+  end
+
+  def settings
+    Setting.last ? Setting.last : Setting.create
   end
 end

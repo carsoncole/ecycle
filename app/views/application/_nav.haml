@@ -26,7 +26,7 @@
 
         - if signed_in? 
           %li.nav-item
-            = link_to settings_path, class: 'nav-link' do
+            = link_to edit_setting_path(settings), class: 'nav-link' do
               .fa.fa-wrench
           %li.nav-item
             = link_to sign_out_path, method: :delete, class: 'nav-link' do

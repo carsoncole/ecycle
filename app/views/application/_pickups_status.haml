@@ -1,0 +1,11 @@
+- if settings.pickup_signups_enabled? && settings.pickups_end_at > Time.now
+  .alert.alert-info.text-center
+    Sign-ups for pickups are now open.
+- elsif settings.pickups_start_at > Time.now
+  .alert.alert-info.text-center
+    Sign-ups for pickups has not started yet.
+    %br
+    Please check back
+- else
+  .alert.alert-info.text-center
+    Sign-ups for pickups is now closed.

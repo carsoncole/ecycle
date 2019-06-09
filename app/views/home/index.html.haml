@@ -4,7 +4,7 @@
     .col-sm
       .about
         %h1 Ecycle Today!
-        %p= @settings.brief_marketing_message
+        %p= settings.brief_marketing_message
           
         = link_to about_path do
           Learn More
@@ -12,9 +12,9 @@
         %br
         %br
         %h4.mb-0
-          = @settings.event_date.strftime("%A") if @settings.event_date
+          = settings.event_date.strftime("%A") if settings.event_date
           %br
-          = @settings.event_date.strftime("%B %d, %Y") if @settings.event_date
+          = settings.event_date.strftime("%B %d, %Y") if settings.event_date
         - if @dropoffs_start_at.present? && @dropoffs_end_at.present?
           Dropoffs:
           %br
@@ -22,7 +22,7 @@
           \-
           = @dropoffs_end_at.strftime('%l:%M%P')
           %br
-          = @settings.dropoff_location
+          = settings.dropoff_location
           %br
         - if @pickups_start_at.present? && @pickups_end_at.present?
           %br
