@@ -9,4 +9,11 @@ class PickupMailerTest < ActionMailer::TestCase
   #   assert_match "Hi", mail.body.encoded
   # end
 
+  test "pickup_scheduled" do
+    pickup = create(:pickup)
+    mail = PickupMailer.pickup_scheduled(pickup.id)
+    assert_equal "Your eCycle pickup is scheduled", mail.subject 
+    assert_equal [pickup.email], mail.to
+    assert_match "Pickup Schedule", mail.body.encoded
+  end
 end
