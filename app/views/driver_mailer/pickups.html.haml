@@ -17,11 +17,11 @@
 
     %p Lunch and breakfast are served! Stop by the church starting at 8am for breakfast, and after 12pm for lunch, for a Troop chow down!
 
-    - if Setting.first.pickup_contact_name.present? && Setting.first.pickup_contact_email.present?
+    - if settings.pickup_contact_name.present? && settings.pickup_contact_email.present?
       %p
         Any questions? Contact
-        = Setting.first.pickup_contact_name
-        = Setting.first.pickup_contact_email
+        = settings.pickup_contact_name
+        = settings.pickup_contact_email
 
     %table.table(width='100%')
       %thead

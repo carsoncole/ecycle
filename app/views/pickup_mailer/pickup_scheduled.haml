@@ -6,7 +6,7 @@
     %div(style='text-align:center')= image_tag "https://ecycle.today/email-logo.png"
     %h1(style="text-align:center;font-size:30px") Pickup Scheduled
     %p(style="text-align:center")
-      = @pickup.name + ', ' + Setting.first_or_create.pickup_instructions
+      = @pickup.name + ', ' + settings.pickup_instructions
 
     %h2(style="text-align:center;margin-bottom:0") Pickup Details
     Address:
@@ -27,9 +27,9 @@
 
     %br
     %br
-    - if Setting.first.pickup_contact_name.present? and Setting.first.pickup_contact_email.present?
+    - if settings.pickup_contact_name.present? and settings.pickup_contact_email.present?
       %p
         If you have any questions regarding your pickup, please contact:
-        = Setting.first.pickup_contact_name
+        = settings.pickup_contact_name
         at
-        = mail_to Setting.first.pickup_contact_email
+        = mail_to settings.pickup_contact_email

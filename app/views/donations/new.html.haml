@@ -8,7 +8,7 @@
 
       %p.text-center Making a donation to Troop 1496 helps to fund its numerous community service and Eagle Scout projects, as well as fund our program of molding upstanding young men. 
 
-      - if Setting.first_or_create.donations_enabled
+      - if settings.donations_enabled
         %h4.text-center How much would you like to donate by check, cash or credit card?
         
         .row
