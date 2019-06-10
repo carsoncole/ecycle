@@ -1,5 +1,5 @@
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "creating a user" do
+    assert create(:user, password: Faker::Name.name)
+  end
 end

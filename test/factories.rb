@@ -17,6 +17,7 @@ FactoryBot.define do
 
   factory :driver do
     email { Faker::Internet.unique.email }
+    name { Faker::Name.name }
   end
 
   factory :pickup do
