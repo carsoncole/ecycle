@@ -33,18 +33,20 @@
           = @pickups_end_at.strftime('%l:%M%P')
 
 
-    .col-sm.title
-      %h2.text-center.mb-0
-        Schedule a Pickup
-      %h5.text-center.mt-0
-        - if @pickups_start_at.present? && @pickups_end_at.present?
-          = @pickups_start_at.strftime('%B %e')
-          %br
-          = @pickups_start_at.strftime('%l:%M%P')
-          \-
-          = @pickups_end_at.strftime('%l:%M%P')
+    - if settings.is_pickups_offered?
+      .col-sm.title
+        #schedule-a-pickup
+          %h2.text-center.mb-0
+            Schedule a Pickup
+          %h5.text-center.mt-0
+            - if @pickups_start_at.present? && @pickups_end_at.present?
+              = @pickups_start_at.strftime('%B %e')
+              %br
+              = @pickups_start_at.strftime('%l:%M%P')
+              \-
+              = @pickups_end_at.strftime('%l:%M%P')
 
-      = render 'form'
+          = render 'form'
 
     .col-sm
       .text-center

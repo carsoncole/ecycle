@@ -14,16 +14,15 @@ class PickupMailer < ApplicationMailer
 
   def admin_pickup_scheduled(pickup_id)
     @pickup = Pickup.find(pickup_id)
-    setting = Setting.last
-    if setting
+    if settings
       admins = []
-      if setting.general_contact_email.present?
-        admins << "#{setting.general_contact_name.present? ? setting.general_contact_name : setting.general_contact_email}<#{setting.general_contact_email}>"
+      if settings.general_contact_email.present?
+        admins << "#{settings.general_contact_name.present? ? settings.general_contact_name : settings.general_contact_email}<#{settings.general_contact_email}>"
       end
-      if setting.pickup_contact_email.present?
-        admins << "#{setting.pickup_contact_name.present? ? setting.pickup_contact_name : setting.pickup_contact_email} <#{setting.pickup_contact_email}>"
+      if settings.pickup_contact_email.present?
+        admins << "#{settings.pickup_contact_name.present? ? settings.pickup_contact_name : settings.pickup_contact_email} <#{settings.pickup_contact_email}>"
       end
-      mail(to: admins, subject: "Ecycle Pickup Scheduled: #{@pickup.email}")
+      mail(to: admins.uniq, subject: "Ecycle Pickup Scheduled: #{@pickup.email}")
     end
   end
 end

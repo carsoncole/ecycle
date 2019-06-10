@@ -1,4 +1,4 @@
-- if settings.pickup_signups_enabled? && settings.pickups_end_at > Time.now
+- if settings.is_pickup_signups_enabled? && (settings.pickups_end_at.nil? || settings.pickups_end_at > Time.now)
   = form_for @pickup do |f|
     - if @pickup.errors.any?
       #error_explanation
@@ -29,7 +29,7 @@
         = f.text_field :message, class: 'form-control'
     %br
     .actions.text-center
-      = f.submit 'Schedule Pickup', class: 'btn btn-primary btn-lg btn-block'
+      = f.submit 'Schedule Pickup', class: 'btn btn-primary btn-lg btn-block', id: 'pickup-button'
 
 - else
   = render 'pickups_status'

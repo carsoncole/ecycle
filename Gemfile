@@ -54,7 +54,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 2.15'
+  gem 'capybara', '~> 3.0'
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 3.0'
   gem 'simplecov'

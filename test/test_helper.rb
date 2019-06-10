@@ -8,5 +8,11 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   include FactoryBot::Syntax::Methods
 
-  # Add more helper methods to be used by all tests here...
+  setup do
+    settings = create(:setting)
+  end
+
+  def app_settings
+    Setting.last
+  end
 end

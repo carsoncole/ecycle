@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_165248) do
+ActiveRecord::Schema.define(version: 2019_06_10_211059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_06_08_165248) do
 
   create_table "settings", force: :cascade do |t|
     t.text "pickup_instructions", default: "Boy Scouts from our Troop will be picking up between 8am and 2pm on Saturday, June 2. Please have your e-waste outside on your curb, house porch, or in front of your garage or front door."
-    t.boolean "pickup_signups_enabled", default: false
+    t.boolean "is_pickup_signups_enabled", default: false
     t.boolean "donations_enabled", default: false
     t.boolean "allow_user_signups", default: true
     t.string "general_contact_name"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_06_08_165248) do
     t.boolean "send_admin_pickup_notifications"
     t.string "dropoff_location"
     t.string "brief_marketing_message"
+    t.boolean "is_pickups_offered", default: true, null: false
+    t.boolean "is_donations_offered", default: true, null: false
   end
 
   create_table "users", force: :cascade do |t|

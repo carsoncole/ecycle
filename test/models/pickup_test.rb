@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class PickupTest < ActiveSupport::TestCase
+  test "should not save pickup without an email" do
+    pickup = Pickup.new
+    assert_not pickup.save
+  end
+
   test "creation of key" do
     pickup = create(:pickup)
     assert_not_nil pickup.key
