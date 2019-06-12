@@ -31,7 +31,7 @@
             %tr
               %th Pickup signups enabled:
               %td.text-right
-                - if @setting.pickup_signups_enabled
+                - if @setting.is_pickup_signups_enabled
                   .font-weight-bold.text-success= "&#10003".html_safe
                 - else
                   .font-weight-bold.text-danger= "&#x2717".html_safe

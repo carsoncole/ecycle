@@ -27,6 +27,12 @@
       .field
         = f.label :Anything_else_you_want_to_tell_us?
         = f.text_field :message, class: 'form-control'
+    - if signed_in? && controller_name == 'pickups'
+      .form-group
+        .field
+          = f.label :driver
+          = f.collection_select :driver_id, Driver.all, :id, :name, include_blank: 'Select driver ... ', class: 'form-control'
+
     %br
     .actions.text-center
       = f.submit 'Schedule Pickup', class: 'btn btn-primary btn-lg btn-block', id: 'pickup-button'
