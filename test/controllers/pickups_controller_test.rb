@@ -1,14 +1,16 @@
 require 'test_helper'
 
 class PickupsControllerTest < ActionDispatch::IntegrationTest
-  # setup do
-  #   @pickup = pickups(:one)
-  # end
+  test "should get index if logged in" do
+    sign_in(create(:user))
+    get pickups_url
+    assert_response :success
+  end
 
-  # test "should get index" do
-  #   get pickups_url
-  #   assert_response :success
-  # end
+  test "should not get index if not logged in" do
+    get pickups_url
+    assert_redirected_to sign_in_url
+  end
 
   # test "should get new" do
   #   get new_pickup_url

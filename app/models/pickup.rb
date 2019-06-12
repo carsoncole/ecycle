@@ -12,7 +12,7 @@ class Pickup < ApplicationRecord
   after_commit :send_notifications!
 
   def address
-    street_address + ', ' + 'Bainbridge Island, WA, US'
+    street_address + ', '
   end
 
   def name_address

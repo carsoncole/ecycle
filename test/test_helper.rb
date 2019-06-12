@@ -15,4 +15,10 @@ class ActiveSupport::TestCase
   def app_settings
     Setting.last
   end
+
+  def sign_in(user)
+    post session_path \
+      'session[email]'    => user.email,
+      'session[password]' => user.password
+  end  
 end

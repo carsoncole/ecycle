@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class ChargeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "a new donation charge" do
+    donation = create(:charge)
+    assert donation.pickup
+  end
 end

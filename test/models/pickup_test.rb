@@ -17,4 +17,12 @@ class PickupTest < ActiveSupport::TestCase
       )
     assert_not pickup.save
   end
+
+  test "setting of pickup key" do
+    pickup = create(:pickup)
+    assert pickup.key
+    pickup.key = nil
+    assert pickup.valid?
+    assert pickup.key
+  end
 end

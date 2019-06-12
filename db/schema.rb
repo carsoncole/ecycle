@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_211059) do
   enable_extension "plpgsql"
 
   create_table "charges", force: :cascade do |t|
-    t.string "customer_id"
+    t.string "customer_iemad"
     t.string "customer_email"
     t.string "stripe_payment_token"
     t.string "charge_id"

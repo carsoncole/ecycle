@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :user do
     email { Faker::Internet.unique.email }
+    password { 'password123'}
   end
 
   factory :setting do
@@ -24,5 +25,9 @@ FactoryBot.define do
     email { Faker::Internet.unique.email }
     name { Faker::Name.name }
     street_address { Faker::Address.street_address }
+  end
+
+  factory :charge do
+    pickup
   end
 end
