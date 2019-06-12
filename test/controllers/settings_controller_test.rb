@@ -1,14 +1,16 @@
 require 'test_helper'
 
 class SettingsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @setting = create(:setting)
+  test "should get index if logged in" do
+    sign_in(create(:user))
+    get setting_path(Setting.last)
+    assert_response :success
   end
 
-  # test "should get index" do
-  #   get settings_url
-  #   assert_response :success
-  # end
+  test "should not get index if not logged in" do
+    get setting_url(Setting.last)
+    assert_redirected_to sign_in_url
+  end
 
   # test "should get new" do
   #   get new_setting_url

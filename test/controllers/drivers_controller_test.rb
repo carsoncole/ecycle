@@ -1,6 +1,18 @@
 require 'test_helper'
 
 class DriversControllerTest < ActionDispatch::IntegrationTest
+  test "should get index if logged in" do
+    sign_in(create(:user))
+    get drivers_url
+    assert_response :success
+  end
+
+  test "should not get index if not logged in" do
+    get drivers_url
+    assert_redirected_to sign_in_url
+  end
+
+
   # setup do
   #   @driver = drivers(:one)
   # end
